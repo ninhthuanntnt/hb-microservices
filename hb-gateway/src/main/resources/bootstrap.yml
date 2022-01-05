@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: hb-gateway
+  cloud:
+    consul:
+      config:
+        fail-fast: false
+      host: localhost
+      port: 8500
+
+logging:
+  level:
+    org.springframework.web.filter.CommonsRequestLoggingFilter: DEBUG

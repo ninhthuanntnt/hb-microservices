@@ -1,0 +1,51 @@
+spring:
+  datasource:
+    url: ${HB_DB_URL}
+    username: ${HB_DB_USERNAME}
+    password: ${HB_DB_PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: none
+    open-in-view: false
+    properties:
+      hibernate.jdbc.batch_size: 50
+  liquibase:
+    change-log: classpath:config/liquibase_ext/master.xml
+    url: ${HB_DB_URL}
+    user: ${HB_DB_USERNAME}
+    password: ${HB_DB_PASSWORD}
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ${HB_MAIL_USERNAME}
+    password: ${HB_MAIL_PASSWORD}
+    protocol: smtp
+    properties.mail.smtp:
+      auth: true
+      starttls.enable: true
+  cloud:
+    consul:
+      ribbon:
+        enabled: true
+      discovery:
+        health-check-path: /actuator/health
+        instance-id: ${spring.application.name}:${spring.application.instance-id:${random.value}}
+        health-check-interval: 10s
+        health-check-timeout: 120s
+        prefer-ip-address: true
+
+server:
+  servlet:
+    encoding:
+      charset: UTF-8
+      force: true
+  port: 8280
+
+feign:
+  circuitbreaker:
+    enabled: true
+    group:
+      enabled: true
+logging:
+  level:
+    root: INFO

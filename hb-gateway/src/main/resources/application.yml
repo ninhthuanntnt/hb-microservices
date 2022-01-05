@@ -1,0 +1,91 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  application:
+    name: hb-gateway
+  cloud:
+    consul:
+      discovery:
+        health-check-path: /actuator/health
+        instance-id: ${spring.application.name}:${spring.application.instance-id:${random.value}}
+        health-check-interval: 10s
+        health-check-timeout: 120s
+        prefer-ip-address: true
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      routes:
+        - id: hb-uaa-route
+          uri: http://127.0.0.1:8280
+          predicates:
+            - Path=/hb-uaa/**
+          filters:
+            - RewritePath=/hb-uaa/(?<path>.*), /$\{path}
+        - id: hb-dmm-route
+          uri: lb://hb-dmm
+          predicates:
+            - Path=/hb-dmm/**
+          filters:
+            - RewritePath=/hb-dmm/(?<path>.*), /$\{path}
+        - id: hb-payment-route
+          uri: lb://hb-payment
+          predicates:
+            - Path=/hb-payment/**
+          filters:
+            - RewritePath=/hb-payment/(?<path>.*), /$\{path}
+#            - name: Retry
+#              args:
+#                retries: 4
+#                series:
+#                  - SERVER_ERROR
+#                  - CLIENT_ERROR
+#                statuses:
+#                  - OK
+#                methods:
+#                  - GET
+#                  - POST
+#                exceptions:
+#                  - java.io.IOException
+        - id: hb-notification-route
+          uri: lb://hb-notification
+          predicates:
+            - Path=/hb-notification/**
+          filters:
+            - RewritePath=/hb-notification/(?<path>.*), /$\{path}path
+      httpclient:
+        connect-timeout: 5000
+      default-filters:
+        - SetHeaderByCookieFilter
+        - TokenRelay=
+        - RemoveRequestHeader=Cookie
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://127.0.0.1:8280/oauth2/jwks
+      client:
+        registration:
+          hb-gateway:
+            provider: hb-uaa
+            client-id: hb_client_id_1
+            client-secret: hb_client_secret_1
+            authorization-grant-type: authorization_code
+            redirect-uri: http://127.0.0.1:8080/login/oauth2/code/hb-gateway
+            scope: openid
+            client-name: hb-gateway
+        provider:
+          hb-uaa:
+            authorization-uri: http://127.0.0.1:8280/oauth2/authorize
+            issuer-uri: http://127.0.0.1:8280
+            token-uri: http://127.0.0.1:8280/oauth2/token
+            jwk-set-uri: http://127.0.0.1:8280/oauth2/jwks
+            user-name-attribute: sub
+application:
+  uri:
+    front-end-user: http://127.0.0.1:3000
+logging:
+  level:
+    root: INFO
+    com.netflix: DEBUG

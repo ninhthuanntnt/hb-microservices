@@ -1,0 +1,22 @@
+spring:
+  cloud:
+    consul:
+      ribbon:
+        enabled: true
+      discovery:
+        health-check-path: /actuator/health
+        instance-id: ${spring.application.name}:${spring.application.instance-id:${random.value}}
+        health-check-interval: 10s
+        health-check-timeout: 120s
+        prefer-ip-address: true
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://127.0.0.1:8280/oauth2/jwks
+server:
+  port: 0
+
+logging:
+  level:
+    root: INFO
