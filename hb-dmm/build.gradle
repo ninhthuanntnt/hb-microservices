@@ -41,6 +41,7 @@ liquibase {
 
 dependencies {
     implementation "org.springframework.boot:spring-boot-starter-data-jpa"
+    implementation 'org.springframework.boot:spring-boot-starter-data-neo4j'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.cloud:spring-cloud-starter'
     implementation 'org.springframework.boot:spring-boot-starter-aop'
@@ -53,6 +54,7 @@ dependencies {
     implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
     implementation "org.mapstruct:mapstruct:${mapstruct_version}"
     implementation "mysql:mysql-connector-java:${mysql_connector_java_version}"
+    implementation "org.neo4j.driver:neo4j-java-driver-spring-boot-starter:${neo4j_driver_version}"
     implementation "org.liquibase:liquibase-core:${liquid_base_core_version}"
     implementation "org.apache.commons:commons-lang3:${commons_lang3_version}"
     implementation "org.apache.commons:commons-collections4:${commons_collections4_version}"

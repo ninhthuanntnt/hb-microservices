@@ -106,5 +106,7 @@ public interface PostRepository
             + " AND (:keyword IS NULL OR p.title LIKE %:keyword% OR p.summary LIKE %:keyword% OR p.content LIKE %:keyword%)")
     Page<Post> searchDynamicPosts(Long categoryId, Long userId, List<Long> tagIds, String keyword, Pageable pageable);
 
+    List<Post> findByIdIn(List<Long> ids);
+
     Long countPostsByCategoryId(Long id);
 }

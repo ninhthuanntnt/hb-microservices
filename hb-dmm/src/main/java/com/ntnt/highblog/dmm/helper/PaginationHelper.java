@@ -72,9 +72,6 @@ public class PaginationHelper {
                 throw new ValidatorException("Invalid sort request", "sorts");
         }
 
-        if (!isContainId)
-            orders.add(Sort.Order.desc("id"));
-
         return Sort.by(orders);
     }
 }

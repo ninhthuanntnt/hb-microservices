@@ -6,12 +6,14 @@ import com.ntnt.highblog.dmm.model.entity.Post;
 import com.ntnt.highblog.dmm.model.entity.PostStatistic;
 import com.ntnt.highblog.dmm.model.entity.PostTag;
 import com.ntnt.highblog.dmm.model.entity.User;
+import com.ntnt.highblog.dmm.model.entity.neo4j.PostNode;
 import com.ntnt.highblog.dmm.model.request.BasePaginationReq;
 import com.ntnt.highblog.dmm.model.request.PostSearchReq;
 import com.ntnt.highblog.dmm.service.PostService;
 import com.ntnt.highblog.dmm.service.PostStatisticService;
 import com.ntnt.highblog.dmm.service.PostTagService;
 import com.ntnt.highblog.dmm.service.UserService;
+import com.ntnt.highblog.dmm.service.neo4j.PostNodeService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -30,15 +32,18 @@ public class PostListBloc {
     private final PostTagService postTagService;
     private final UserService userService;
     private final PostStatisticService postStatisticService;
+    private final PostNodeService postNodeService;
 
     public PostListBloc(final PostService postService,
                         final PostTagService postTagService,
                         final UserService userService,
-                        final PostStatisticService postStatisticService) {
+                        final PostStatisticService postStatisticService,
+                        final PostNodeService postNodeService) {
         this.postService = postService;
         this.postTagService = postTagService;
         this.userService = userService;
         this.postStatisticService = postStatisticService;
+        this.postNodeService = postNodeService;
     }
 
     @Transactional(readOnly = true)
@@ -55,16 +60,34 @@ public class PostListBloc {
         return posts;
     }
 
+    public Page<Post> fetchRecommendedPosts(BasePaginationReq basePaginationReq) {
+        Long currentUserId = SecurityHelper.getCurrentUserId();
+        log.info("Fetch recommended post for userId #{}", currentUserId);
+
+        PageRequest pageRequest = PaginationHelper.generatePageRequest(basePaginationReq);
+        Page<PostNode> postNodePage = postNodeService.fetchRecommendedPostByUserId(currentUserId, pageRequest);
+        return getPostsFromPostNodes(postNodePage);
+    }
+
+    public Page<Post> fetchRecommendedPostsById(Long id, BasePaginationReq basePaginationReq) {
+        Long currentUserId = SecurityHelper.getCurrentUserId();
+        log.info("Fetch recommended posts by id #{} for userId #{}", id, currentUserId);
+
+        PageRequest pageRequest = PaginationHelper.generatePageRequest(basePaginationReq);
+        Page<PostNode> postNodePage = postNodeService.fetchRecommendedPostByIdAndUserId(id, currentUserId, pageRequest);
+        return getPostsFromPostNodes(postNodePage);
+    }
+
+    @Transactional(readOnly = true)
     public Page<Post> fetchPostsByNickName(final String nickName, Long categoryId, final BasePaginationReq req) {
         log.info("Fetch list posts by nickName #{} with req #{}", nickName, req);
         PageRequest pageRequest = PaginationHelper.generatePageRequestWithDefaultSort(req,
                                                                                       "-ps.id");
         Long currentUserId = SecurityHelper.getCurrentUserId();
-        Page<Post> posts= null;
-        if(currentUserId == userService.getByNickName(nickName).getId()) {
+        Page<Post> posts = null;
+        if (currentUserId == userService.getByNickName(nickName).getId()) {
             posts = postService.fetchPostsOfCurrentUser(nickName, categoryId, pageRequest);
-        }
-        else  posts = postService.fetchPostsByNickNameWithPageRequest(nickName, categoryId, pageRequest);
+        } else posts = postService.fetchPostsByNickNameWithPageRequest(nickName, categoryId, pageRequest);
 
         includePostTagsToPosts(posts);
         includeUserToPosts(posts);
@@ -89,7 +112,7 @@ public class PostListBloc {
         PageRequest pageRequest = PaginationHelper.generatePageRequest(req);
 
         Page<Post> posts = postService
-                .fetchPostsByFollowerIdWithPageRequest(SecurityHelper.getCurrentUserId(), categoryId, pageRequest);
+            .fetchPostsByFollowerIdWithPageRequest(SecurityHelper.getCurrentUserId(), categoryId, pageRequest);
 
         includePostTagsToPosts(posts);
         includeUserToPosts(posts);
@@ -127,10 +150,10 @@ public class PostListBloc {
 
     private void includePostTagsToPosts(Page<Post> posts) {
         Map<Long, List<PostTag>> postIdPostTagsMap =
-                postTagService
-                        .fetchByPostIdIn(posts.map(Post::getId).toSet())
-                        .stream()
-                        .collect(Collectors.groupingBy(PostTag::getPostId));
+            postTagService
+                .fetchByPostIdIn(posts.map(Post::getId).toSet())
+                .stream()
+                .collect(Collectors.groupingBy(PostTag::getPostId));
 
         posts.forEach(post -> post.setPostTags(postIdPostTagsMap.get(post.getId())));
     }
@@ -145,11 +168,28 @@ public class PostListBloc {
 
     private void includePostStatisticToPosts(Page<Post> posts) {
         Map<Long, PostStatistic> postIdPostStatisticMap =
-                postStatisticService.fetchByPostIdIn(posts.map(Post::getId).toSet())
-                                    .stream()
-                                    .collect(Collectors.toMap(PostStatistic::getPostId,
-                                                              postStatistic -> postStatistic));
+            postStatisticService.fetchByPostIdIn(posts.map(Post::getId).toSet())
+                                .stream()
+                                .collect(Collectors.toMap(PostStatistic::getPostId,
+                                                          postStatistic -> postStatistic));
 
         posts.forEach(post -> post.setPostStatistic(postIdPostStatisticMap.get(post.getId())));
+    }
+
+    private Page<Post> getPostsFromPostNodes(final Page<PostNode> postNodePage) {
+        Map<Long, Post> postIdPostMap = postService.getByIdIn(postNodePage.getContent()
+                                                                          .stream()
+                                                                          .map(PostNode::getId)
+                                                                          .collect(Collectors.toList()))
+                                                   .stream().collect(Collectors.toMap(Post::getId,
+                                                                                      post -> post));
+
+        Page<Post> postPage = postNodePage.map(postNode -> postIdPostMap.get(postNode.getId()));
+
+        includePostTagsToPosts(postPage);
+        includeUserToPosts(postPage);
+        includePostStatisticToPosts(postPage);
+
+        return postPage;
     }
 }

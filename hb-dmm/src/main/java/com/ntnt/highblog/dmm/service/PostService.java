@@ -160,6 +160,13 @@ public class PostService {
         return repository.searchDynamicPosts(categoryId, userId, tagIds, keyword, pageRequest);
     }
 
+    @Transactional(readOnly = true)
+    public List<Post> getByIdIn(List<Long> ids) {
+        log.info("Get by id in #{}", ids);
+
+        return repository.findByIdIn(ids);
+    }
+
     @Transactional
     public void restorePost(final Long id) {
         log.info("restore post by id #{}", id);
