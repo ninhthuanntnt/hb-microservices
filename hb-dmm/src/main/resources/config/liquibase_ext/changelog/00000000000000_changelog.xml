@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+    <property name="now" value="now(3)"/>
+
+    <changeSet id="HB-00000000000000-1" author="ninhthuanntnt">
+        <createTable tableName="hb_users">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" primaryKeyName="pk_users"/>
+            </column>
+            <column name="first_name" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_name" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="gender_type" type="varchar(10)" defaultValue="MALE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="image_path" type="varchar(255)"/>
+            <column name="background_path" type="varchar(255)"/>
+
+            <column name="created_by" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="timestamp(3)" defaultValueComputed="${now}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_by" type="varchar(50)"/>
+            <column name="last_modified_date" type="timestamp(3)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="HB-00000000000000-2" author="ninhthuanntnt">
+        <createTable tableName="hb_files">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" primaryKeyName="pk_files"/>
+            </column>
+            <column name="user_id" type="bigint"/>
+            <column name="name" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="path" type="varchar(255)"/>
+
+            <column name="created_by" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="timestamp(3)" defaultValueComputed="${now}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_by" type="varchar(50)"/>
+            <column name="last_modified_date" type="timestamp(3)"/>
+        </createTable>
+        <createIndex tableName="hb_files" indexName="idx_files_user_id">
+            <column name="user_id" type="bigint"/>
+        </createIndex>
+    </changeSet>
+</databaseChangeLog>

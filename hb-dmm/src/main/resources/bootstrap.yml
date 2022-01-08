@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: hb-dmm
+  cloud:
+    consul:
+      enabled: true
+      host: localhost
+      port: 8500

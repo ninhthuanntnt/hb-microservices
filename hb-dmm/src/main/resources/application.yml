@@ -1,0 +1,71 @@
+spring:
+  datasource:
+    url: ${HB_DB_URL}
+    username: ${HB_DB_USERNAME}
+    password: ${HB_DB_PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: none
+    open-in-view: false
+    properties:
+      hibernate.jdbc.batch_size: 50
+  liquibase:
+    change-log: classpath:config/liquibase_ext/master.xml
+    url: ${HB_DB_URL}
+    user: ${HB_DB_USERNAME}
+    password: ${HB_DB_PASSWORD}
+  cloud:
+    consul:
+      ribbon:
+        enabled: true
+      discovery:
+        health-check-path: /actuator/health
+        instance-id: ${spring.application.name}:${spring.application.instance-id:${random.value}}
+        health-check-interval: 10s
+        health-check-timeout: 120s
+        prefer-ip-address: true
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://127.0.0.1:8280/oauth2/jwks
+server:
+  port: 0
+
+feign:
+  circuitbreaker:
+    enabled: true
+    group:
+      enabled: true
+
+logging:
+  level:
+    root: INFO
+
+application:
+  jwt:
+    secret-key: ${HB_JWT_SECRET_KEY}
+    issuer: ${HB_JWT_ISSUER}
+    expiration: ${HB_JWT_EXPIRATION}
+    refresh-expiration: ${HB_JWT_REFRESH_EXPIRATION}
+  file-upload:
+    allowed-image-extensions:
+      - jpg
+      - jpeg
+      - png
+      - gif
+    root-dir: ${HB_ABSOLUTE_PATH_UPLOADS_DIR:/home/ninhthuan/uploads}
+    images-sub-dir: ${HB_IMAGES_SUB_DIR:images}
+  resource-template:
+    registration-email-template: classpath:./templates/registration_email_template.html
+  cors:
+    allowed-origin: ${HB_ALLOWED_ORIGIN}
+  paypal:
+    client-id: ${HB_PAYPAL_CLIENT_ID}
+    client-secret: ${HB_PAYPAL_CLIENT_SECRET}
+    environment: ${HB_PAYPAL_ENVIRONMENT}
+  rabbit-mq:
+    host: ${HB_RABBIT_MQ_HOST}
+    port: ${HB_RABBIT_MQ_PORT}
+    username: ${HB_RABBIT_MQ_USERNAME}
+    password: ${HB_RABBIT_MQ_PASSWORD}

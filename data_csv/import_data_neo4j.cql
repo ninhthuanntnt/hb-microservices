@@ -1,0 +1,40 @@
+LOAD CSV WITH HEADERS FROM 'file:/hb_posts.csv' AS line
+CREATE (:Post 
+{
+    id: line.id, 
+    userId: line.user_id, 
+    categoryId: line.category_id, 
+    title: line.title, 
+    numberOfVotes: line.number_of_votes,
+    numberOfComments: line.number_of_comments,
+    numberOfFavorites: line.number_of_favorites
+});
+
+LOAD CSV WITH HEADERS FROM 'file:/hb_users.csv' AS line
+CREATE (:User
+{
+    id: toInteger(line.id),
+    nickName: line.nick_name
+});
+
+LOAD CSV WITH HEADERS FROM 'file:/hb_tags.csv' AS line
+CREATE (:Tag
+{
+    id: toInteger(line.id),
+    name: line.name
+});
+
+LOAD CSV WITH HEADERS FROM 'file:/hb_posts_tags.csv' AS line
+MATCH (p:Post {id: toInteger(line.post_id)})
+MATCH (t:Tag {id: toInteger(line.tag_id)})
+CREATE (p)-[:HAS_TAG]->(t);
+
+MATCH (p:Post)
+MATCH (u:User {id: p.userId})
+CREATE (u)-[:IS_AUTHOR]->(p)
+RETURN u, p;
+
+LOAD CSV WITH HEADERS FROM 'file:/hb_subscriptions.csv' AS line
+MATCH (author:User {id: toInteger(line.user_id)})
+MATCH (follower:User {id: toInteger(line.follower_id)})
+CREATE (follower)-[:FOLLOWS]->(author);

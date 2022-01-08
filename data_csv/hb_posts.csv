@@ -1,0 +1,670 @@
+id,user_id,category_id,title,number_of_votes,number_of_comments,number_of_favorites
+1,228,2,Integer tincidunt ante vel ipsum.,0,0,0
+2,340,1,Nullam molestie nibh in lectus.,1,0,0
+4,260,2,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue.",0,0,0
+6,996,1,Donec posuere metus vitae ipsum. Aliquam non mauris.,1,0,1
+7,483,2,"Donec semper sapien a libero. Nam dui. Proin leo odio, porttitor id, consequat in, consequat ut, nulla.",0,0,0
+8,219,2,"Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam. Nam tristique tortor eu pede.",0,0,0
+10,455,2,"Cras pellentesque volutpat dui. Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc.",0,0,0
+11,871,2,Nunc purus. Phasellus in felis. Donec semper sapien a libero.,0,0,0
+12,353,1,"Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros. Vestibulum ac est lacinia nisi venenatis tristique.",1,14,1
+14,727,2,Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.,0,0,0
+15,218,1,Donec dapibus.,0,1,0
+16,675,1,In eleifend quam a odio. In hac habitasse platea dictumst.,0,0,0
+18,496,2,Vivamus in felis eu sapien cursus vestibulum.,0,0,0
+20,69,2,Aenean auctor gravida sem. Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo.,0,0,0
+21,53,2,Praesent blandit lacinia erat.,0,0,0
+22,359,1,Nunc rhoncus dui vel sem.,0,0,0
+23,570,1,"In est risus, auctor sed, tristique in, tempus sit amet, sem. Fusce consequat.",0,0,1
+25,109,1,"Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet. Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo.",1,0,1
+26,95,1,"Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.",0,0,0
+28,524,2,Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est.,0,0,0
+29,684,2,Nullam varius.,0,0,0
+30,566,2,Etiam pretium iaculis justo. In hac habitasse platea dictumst.,0,0,0
+31,383,1,Proin interdum mauris non ligula pellentesque ultrices.,0,0,1
+32,984,1,"Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet. Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo.",0,1,0
+35,166,2,Duis bibendum.,0,0,0
+36,639,1,"Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl.",1,11,1
+38,569,2,Morbi vel lectus in quam fringilla rhoncus.,0,0,0
+40,603,1,Etiam justo.,0,0,0
+42,337,2,Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.,0,0,0
+44,542,1,Integer ac leo.,0,0,0
+48,934,2,Duis ac nibh.,0,0,0
+53,773,2,Proin eu mi. Nulla ac enim.,0,0,0
+54,836,1,Nulla facilisi. Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit.,0,0,0
+56,458,2,Mauris ullamcorper purus sit amet nulla.,0,0,0
+59,683,2,Pellentesque at nulla.,0,0,0
+60,19,2,"Cras pellentesque volutpat dui. Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam.",0,0,0
+61,334,1,"Cras pellentesque volutpat dui. Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc.",0,0,0
+63,888,2,Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.,0,0,0
+64,288,2,Ut at dolor quis odio consequat varius. Integer ac leo.,0,0,0
+65,510,1,Praesent lectus.,0,0,0
+66,514,2,"Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus.",0,0,0
+70,305,1,Suspendisse potenti. Nullam porttitor lacus at turpis.,0,0,0
+71,15,1,Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.,0,0,0
+72,223,2,Etiam justo. Etiam pretium iaculis justo.,0,0,0
+75,90,2,Vestibulum sed magna at nunc commodo placerat.,0,0,0
+77,455,2,Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum.,0,0,0
+78,283,2,Nulla facilisi. Cras non velit nec nisi vulputate nonummy.,0,0,0
+82,35,1,In quis justo. Maecenas rhoncus aliquam lacus.,0,0,0
+83,85,2,Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.,0,0,0
+84,943,2,Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh.,0,0,0
+85,360,2,Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.,0,0,0
+88,304,2,Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.,0,0,0
+90,562,2,Etiam pretium iaculis justo. In hac habitasse platea dictumst. Etiam faucibus cursus urna.,0,0,0
+91,283,1,Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus. Curabitur at ipsum ac tellus semper interdum.,1,0,0
+93,604,2,"Vivamus vel nulla eget eros elementum pellentesque. Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla.",0,0,0
+97,821,1,Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus.,1,0,0
+98,561,2,Nulla suscipit ligula in lacus. Curabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla.,0,0,0
+101,124,1,Quisque ut erat. Curabitur gravida nisi at nibh.,0,15,1
+103,378,1,"Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa.",0,0,1
+104,713,1,"Donec quis orci eget orci vehicula condimentum. Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo.",0,0,1
+105,566,1,"Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl. Aenean lectus. Pellentesque eget nunc.",0,0,1
+106,206,2,Morbi porttitor lorem id ligula.,0,0,1
+107,919,1,"Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus.",0,0,1
+109,914,1,"Vivamus vel nulla eget eros elementum pellentesque. Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla.",0,0,1
+111,915,1,"Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat.",0,0,0
+112,272,2,"Integer non velit. Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue.",0,0,0
+113,320,1,Praesent id massa id nisl venenatis lacinia.,0,0,0
+114,987,2,"Morbi ut odio. Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo.",0,0,0
+122,498,1,"Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",0,0,0
+123,918,2,Vestibulum sed magna at nunc commodo placerat. Praesent blandit. Nam nulla.,0,0,0
+124,433,2,Mauris sit amet eros.,0,0,0
+126,592,2,Nullam varius. Nulla facilisi.,0,0,0
+127,380,2,Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.,0,0,0
+128,6,2,Sed accumsan felis. Ut at dolor quis odio consequat varius. Integer ac leo.,0,0,0
+129,301,1,Nulla tellus. In sagittis dui vel nisl.,0,0,0
+137,843,2,Morbi non quam nec dui luctus rutrum.,0,0,0
+138,136,2,"Praesent lectus. Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio.",0,0,0
+139,254,1,Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi.,0,0,0
+141,169,1,"Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel augue.",0,0,0
+142,820,2,In hac habitasse platea dictumst.,0,0,0
+144,689,2,Vivamus vestibulum sagittis sapien.,0,0,0
+154,863,2,Nulla suscipit ligula in lacus.,0,0,0
+155,469,2,"Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel augue. Vestibulum rutrum rutrum neque.",0,0,0
+156,617,2,"Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.",0,0,0
+157,59,1,Donec dapibus. Duis at velit eu est congue elementum.,0,0,0
+159,990,1,"Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo.",0,0,0
+160,548,1,Integer ac leo.,0,0,0
+161,617,2,Phasellus id sapien in sapien iaculis congue.,0,0,0
+162,566,1,"In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.",0,0,0
+163,145,2,Quisque porta volutpat erat.,0,0,0
+164,988,2,In hac habitasse platea dictumst. Maecenas ut massa quis augue luctus tincidunt.,0,0,0
+165,910,2,Aenean fermentum.,0,0,0
+167,189,2,Duis mattis egestas metus. Aenean fermentum. Donec ut mauris eget massa tempor convallis.,0,0,0
+168,223,2,Donec dapibus. Duis at velit eu est congue elementum. In hac habitasse platea dictumst.,0,0,0
+169,766,2,Quisque ut erat. Curabitur gravida nisi at nibh.,0,0,0
+170,477,2,In hac habitasse platea dictumst.,0,0,0
+172,329,2,Nullam molestie nibh in lectus. Pellentesque at nulla. Suspendisse potenti.,0,0,0
+174,616,2,Maecenas pulvinar lobortis est.,0,0,0
+176,78,1,Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.,0,0,0
+178,499,2,In hac habitasse platea dictumst.,0,0,0
+179,90,1,Maecenas pulvinar lobortis est.,0,0,0
+180,305,1,Aliquam quis turpis eget elit sodales scelerisque.,0,0,0
+181,261,1,"Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",0,0,0
+182,462,2,"Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat.",0,0,0
+183,918,1,Nullam varius.,0,0,0
+184,35,1,Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.,0,0,0
+185,385,2,Donec dapibus. Duis at velit eu est congue elementum. In hac habitasse platea dictumst.,0,0,0
+186,438,2,"Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.",0,0,0
+187,823,1,Morbi a ipsum. Integer a nibh. In quis justo.,0,0,0
+188,301,1,"Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.",0,0,0
+191,983,2,Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.,0,0,0
+192,764,1,Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem.,0,0,0
+194,694,2,Suspendisse potenti. In eleifend quam a odio.,0,0,0
+195,253,1,"Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis. Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl.",0,0,0
+197,736,2,"Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.",0,0,0
+200,843,1,"Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci.",0,0,0
+203,342,2,"Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo.",0,0,0
+206,672,2,Duis mattis egestas metus.,0,0,0
+207,273,2,Nulla suscipit ligula in lacus.,0,0,0
+213,614,2,In hac habitasse platea dictumst. Etiam faucibus cursus urna.,0,0,0
+214,11,2,Mauris lacinia sapien quis libero.,0,0,0
+215,242,1,Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque. Quisque porta volutpat erat.,0,0,0
+216,85,2,In eleifend quam a odio. In hac habitasse platea dictumst. Maecenas ut massa quis augue luctus tincidunt.,0,0,0
+217,53,2,"Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla.",0,0,0
+218,6,2,"In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin interdum mauris non ligula pellentesque ultrices.",0,0,0
+219,378,2,"Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.",0,0,0
+220,487,2,Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est.,0,0,0
+221,133,1,Curabitur convallis. Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor.,0,0,0
+223,429,2,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",0,0,0
+224,59,2,Aliquam erat volutpat. In congue.,0,0,0
+225,54,2,Suspendisse potenti.,0,0,0
+226,625,2,"Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl. Aenean lectus. Pellentesque eget nunc.",0,0,0
+227,359,2,"Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem. Fusce consequat.",0,0,0
+229,280,2,"Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus.",0,0,0
+230,999,2,Aenean sit amet justo.,0,0,0
+236,683,2,Morbi a ipsum.,0,0,0
+237,581,1,Morbi a ipsum. Integer a nibh. In quis justo.,0,0,0
+238,713,1,"Integer non velit. Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue.",0,0,0
+240,787,2,"Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.",0,0,0
+242,486,1,Maecenas tincidunt lacus at velit.,0,0,0
+243,10,1,Nulla ut erat id mauris vulputate elementum.,0,0,0
+245,273,1,Phasellus in felis.,0,0,0
+246,910,2,Curabitur convallis.,0,0,0
+247,460,1,"Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem. Fusce consequat.",0,0,0
+248,382,1,Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam.,0,0,0
+250,984,1,Morbi a ipsum. Integer a nibh.,0,0,0
+251,444,2,"In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante.",0,0,0
+252,192,1,Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus.,0,0,0
+253,729,2,Vivamus in felis eu sapien cursus vestibulum. Proin eu mi. Nulla ac enim.,0,0,0
+254,93,1,In sagittis dui vel nisl. Duis ac nibh.,0,0,0
+260,127,1,In eleifend quam a odio. In hac habitasse platea dictumst. Maecenas ut massa quis augue luctus tincidunt.,0,0,0
+262,510,2,"Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis.",0,0,0
+265,45,2,"Duis at velit eu est congue elementum. In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante.",0,0,0
+266,940,2,"Donec vitae nisi. Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla.",0,0,0
+268,309,1,In sagittis dui vel nisl. Duis ac nibh.,0,0,0
+269,117,1,Nam nulla.,0,0,0
+270,783,2,Vivamus tortor. Duis mattis egestas metus. Aenean fermentum.,0,0,0
+271,272,2,"Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel augue. Vestibulum rutrum rutrum neque.",0,0,0
+274,958,2,"Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat.",0,0,0
+277,339,2,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",0,0,0
+279,544,1,Nullam varius.,0,0,0
+280,528,1,In quis justo. Maecenas rhoncus aliquam lacus.,0,0,0
+282,985,2,Morbi non quam nec dui luctus rutrum. Nulla tellus. In sagittis dui vel nisl.,0,0,0
+284,536,2,"Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo.",0,0,0
+285,789,2,Phasellus in felis.,0,0,0
+286,494,2,"Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet. Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo.",0,0,0
+287,730,2,Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros.,0,0,0
+288,815,1,"Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus. Pellentesque at nulla.",0,0,0
+289,897,1,Suspendisse potenti. Nullam porttitor lacus at turpis.,0,0,0
+290,156,1,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",0,0,0
+293,835,1,Nulla tempus.,0,0,0
+295,226,1,Donec dapibus. Duis at velit eu est congue elementum. In hac habitasse platea dictumst.,0,0,0
+298,361,1,"Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam.",0,0,0
+300,975,1,Vestibulum rutrum rutrum neque. Aenean auctor gravida sem. Praesent id massa id nisl venenatis lacinia.,0,0,0
+301,644,1,Morbi quis tortor id nulla ultrices aliquet.,0,0,0
+303,569,2,Aliquam non mauris. Morbi non lectus.,0,0,0
+305,60,1,Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum. Curabitur in libero ut massa volutpat convallis.,0,0,0
+310,149,1,"Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla.",0,0,0
+311,616,2,"Mauris ullamcorper purus sit amet nulla. Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam. Nam tristique tortor eu pede.",0,0,0
+312,738,1,Ut at dolor quis odio consequat varius. Integer ac leo.,0,0,0
+313,604,1,Donec posuere metus vitae ipsum. Aliquam non mauris. Morbi non lectus.,0,0,0
+316,586,2,Quisque id justo sit amet sapien dignissim vestibulum.,0,0,0
+317,650,1,Etiam vel augue. Vestibulum rutrum rutrum neque.,0,0,0
+318,756,2,"Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam.",0,0,0
+319,371,2,"Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus.",0,0,0
+320,757,1,Nulla mollis molestie lorem. Quisque ut erat. Curabitur gravida nisi at nibh.,0,0,0
+321,730,2,Aliquam erat volutpat. In congue.,0,0,0
+322,742,2,Vestibulum sed magna at nunc commodo placerat. Praesent blandit.,0,0,0
+325,714,1,Donec dapibus. Duis at velit eu est congue elementum. In hac habitasse platea dictumst.,0,0,0
+326,175,1,Etiam faucibus cursus urna. Ut tellus.,0,0,0
+330,873,1,Nam nulla.,0,0,0
+332,242,1,Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum. Curabitur in libero ut massa volutpat convallis.,0,0,0
+333,77,1,Nulla tempus.,0,0,0
+334,773,1,Nullam varius. Nulla facilisi. Cras non velit nec nisi vulputate nonummy.,0,0,0
+335,993,2,Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.,0,0,0
+336,372,1,"In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",0,0,0
+337,582,2,"Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",0,0,0
+338,143,2,"Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat. In congue.",0,0,0
+339,703,1,Donec posuere metus vitae ipsum. Aliquam non mauris.,0,0,0
+340,547,2,Phasellus in felis. Donec semper sapien a libero.,0,0,0
+341,60,2,Aliquam quis turpis eget elit sodales scelerisque.,0,0,0
+344,673,1,"Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl.",0,0,0
+346,638,2,Fusce consequat. Nulla nisl.,0,0,0
+348,60,1,Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat. Praesent blandit.,0,0,0
+349,253,2,Proin at turpis a pede posuere nonummy.,0,0,0
+350,342,1,Duis bibendum.,0,0,0
+351,309,1,"Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci.",0,0,0
+352,155,1,In hac habitasse platea dictumst. Etiam faucibus cursus urna.,0,0,0
+353,976,1,"Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.",0,0,0
+354,38,2,"Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus. Suspendisse potenti.",0,0,0
+357,473,1,"Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat.",0,0,0
+358,503,1,"Morbi vel lectus in quam fringilla rhoncus. Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci.",0,0,0
+359,979,1,"Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam.",0,0,0
+361,536,2,Suspendisse potenti. Nullam porttitor lacus at turpis.,0,0,0
+365,836,1,Nulla tellus. In sagittis dui vel nisl. Duis ac nibh.,0,0,0
+366,844,1,Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.,0,0,0
+367,109,1,"Vivamus vel nulla eget eros elementum pellentesque. Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla.",0,0,0
+368,473,2,Aenean lectus.,0,0,0
+370,305,1,"Pellentesque ultrices mattis odio. Donec vitae nisi. Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla.",0,0,0
+374,614,2,Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue.,0,0,0
+375,61,2,Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio.,0,0,0
+376,403,1,"Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis.",0,0,0
+377,360,1,Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo.,0,0,0
+379,361,1,"In est risus, auctor sed, tristique in, tempus sit amet, sem.",0,0,0
+381,795,1,"Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus.",0,0,0
+382,263,2,"Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla.",0,0,0
+383,56,1,"Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl. Aenean lectus.",0,0,0
+384,156,2,Integer ac leo. Pellentesque ultrices mattis odio.,0,0,0
+385,422,2,Nullam varius.,0,0,0
+386,228,1,Suspendisse potenti. Cras in purus eu magna vulputate luctus.,0,0,0
+387,32,1,Duis at velit eu est congue elementum. In hac habitasse platea dictumst.,0,0,0
+388,592,2,Morbi non quam nec dui luctus rutrum.,0,0,0
+389,279,1,Nunc purus. Phasellus in felis.,0,0,0
+390,629,2,Nulla suscipit ligula in lacus. Curabitur at ipsum ac tellus semper interdum.,0,0,0
+391,226,2,Fusce consequat. Nulla nisl.,0,0,0
+392,422,2,"Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus.",0,0,0
+395,300,2,"Proin leo odio, porttitor id, consequat in, consequat ut, nulla.",0,0,0
+397,146,2,Nullam porttitor lacus at turpis.,0,0,0
+401,260,2,"Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel augue.",0,0,0
+402,248,2,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",0,0,0
+403,880,2,Integer tincidunt ante vel ipsum.,0,0,0
+406,618,2,Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh.,0,0,0
+408,288,1,Etiam pretium iaculis justo. In hac habitasse platea dictumst.,0,0,0
+410,421,2,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",0,0,0
+413,403,2,Donec posuere metus vitae ipsum.,0,0,0
+414,524,2,Proin at turpis a pede posuere nonummy.,0,0,0
+418,78,2,Donec dapibus. Duis at velit eu est congue elementum. In hac habitasse platea dictumst.,0,0,0
+419,707,1,"Nulla nisl. Nunc nisl. Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa.",0,0,0
+422,614,1,"Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl.",0,0,0
+424,687,1,Maecenas rhoncus aliquam lacus.,0,0,0
+426,450,2,"Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est. Phasellus sit amet erat.",0,0,0
+427,664,1,Donec dapibus.,0,0,0
+428,124,2,Ut at dolor quis odio consequat varius. Integer ac leo. Pellentesque ultrices mattis odio.,0,0,0
+429,389,1,"Praesent lectus. Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio.",0,0,0
+430,297,2,Curabitur in libero ut massa volutpat convallis.,0,0,0
+433,690,2,"Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh. Quisque id justo sit amet sapien dignissim vestibulum.",0,0,0
+434,400,1,Donec quis orci eget orci vehicula condimentum.,0,0,0
+435,749,1,Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit.,0,0,0
+436,169,1,Nulla justo. Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros.,0,0,0
+437,605,2,Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.,0,0,0
+438,595,1,"Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.",0,0,0
+439,514,2,"Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel augue.",0,0,0
+442,476,1,"Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante.",0,0,0
+444,609,1,Ut tellus. Nulla ut erat id mauris vulputate elementum.,0,0,0
+445,625,1,Suspendisse potenti. Cras in purus eu magna vulputate luctus.,0,0,0
+446,926,1,Nunc purus. Phasellus in felis.,0,0,0
+447,649,1,Nunc nisl.,0,0,0
+449,170,2,Proin risus.,0,0,0
+450,852,1,Nulla facilisi.,0,0,0
+451,487,2,Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.,0,0,0
+452,101,2,"Morbi vel lectus in quam fringilla rhoncus. Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci.",0,0,0
+454,986,2,Mauris sit amet eros.,0,0,0
+455,271,1,"Cras in purus eu magna vulputate luctus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",0,0,0
+456,700,1,Nulla mollis molestie lorem.,0,0,0
+457,720,1,Nulla nisl. Nunc nisl.,0,0,0
+458,139,1,"Curabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla. Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam.",0,0,0
+459,574,2,Curabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla.,0,0,0
+460,341,2,Nunc rhoncus dui vel sem.,0,0,0
+461,981,2,"Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci.",0,0,0
+462,717,2,Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.,0,0,0
+463,32,1,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin risus. Praesent lectus.",0,0,0
+466,639,1,Donec posuere metus vitae ipsum.,0,0,0
+468,987,2,"Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est. Phasellus sit amet erat.",0,0,0
+469,73,2,"Vestibulum quam sapien, varius ut, blandit non, interdum in, ante.",0,0,0
+470,309,2,Nunc nisl.,0,0,0
+472,389,2,"Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.",0,0,0
+474,146,2,"Vestibulum quam sapien, varius ut, blandit non, interdum in, ante.",0,0,0
+475,732,1,In eleifend quam a odio.,0,0,0
+476,518,2,Vivamus vestibulum sagittis sapien.,0,0,0
+477,315,1,In hac habitasse platea dictumst. Etiam faucibus cursus urna.,0,0,0
+478,537,1,Nulla facilisi. Cras non velit nec nisi vulputate nonummy.,0,0,0
+479,390,1,"Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est. Phasellus sit amet erat.",0,0,0
+482,744,2,Proin eu mi. Nulla ac enim.,0,0,0
+483,614,1,Aenean auctor gravida sem. Praesent id massa id nisl venenatis lacinia.,0,0,0
+484,164,2,Maecenas rhoncus aliquam lacus.,0,0,0
+485,736,1,Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.,0,0,0
+487,129,2,Etiam faucibus cursus urna.,0,0,0
+489,88,1,"Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem. Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat.",0,0,0
+492,211,2,Etiam faucibus cursus urna. Ut tellus. Nulla ut erat id mauris vulputate elementum.,0,0,0
+495,129,1,Mauris lacinia sapien quis libero. Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum.,0,0,0
+496,22,1,Suspendisse potenti. In eleifend quam a odio.,0,0,0
+498,474,1,Donec quis orci eget orci vehicula condimentum. Curabitur in libero ut massa volutpat convallis.,0,0,0
+499,11,2,"Donec semper sapien a libero. Nam dui. Proin leo odio, porttitor id, consequat in, consequat ut, nulla.",0,0,0
+500,195,1,"Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam.",0,0,0
+501,647,2,"Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede. Morbi porttitor lorem id ligula.",0,0,0
+503,476,2,Nulla mollis molestie lorem. Quisque ut erat. Curabitur gravida nisi at nibh.,0,0,0
+504,248,1,"Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.",0,0,0
+505,339,2,Nunc purus. Phasellus in felis. Donec semper sapien a libero.,0,0,0
+510,497,2,Morbi vel lectus in quam fringilla rhoncus.,0,0,0
+515,273,2,Donec dapibus. Duis at velit eu est congue elementum. In hac habitasse platea dictumst.,0,0,0
+516,390,1,"Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl. Aenean lectus.",0,0,0
+517,373,1,Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.,0,0,0
+518,68,1,Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.,0,0,0
+522,499,1,Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus.,0,0,0
+523,604,1,"Morbi ut odio. Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo.",0,0,0
+524,373,2,"Morbi quis tortor id nulla ultrices aliquet. Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo.",0,0,0
+525,95,2,"Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.",0,0,0
+528,462,2,Suspendisse accumsan tortor quis turpis. Sed ante. Vivamus tortor.,0,0,0
+529,279,1,Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.,0,0,0
+531,444,2,Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.,0,0,0
+532,241,1,In hac habitasse platea dictumst. Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem.,0,0,0
+533,938,1,Duis mattis egestas metus.,0,0,0
+534,147,2,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",0,0,0
+536,976,2,Vivamus tortor.,0,0,0
+537,549,1,"Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.",0,0,0
+538,934,2,Donec dapibus.,0,0,0
+539,27,1,Duis at velit eu est congue elementum.,0,2,0
+540,67,1,"Cras pellentesque volutpat dui. Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc.",0,0,0
+541,681,2,"Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede. Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus.",0,0,0
+542,730,1,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin risus. Praesent lectus.",0,0,0
+549,169,1,In eleifend quam a odio. In hac habitasse platea dictumst.,0,0,0
+550,173,1,In hac habitasse platea dictumst.,0,0,0
+551,262,1,Morbi quis tortor id nulla ultrices aliquet.,0,0,0
+554,215,1,Vivamus vel nulla eget eros elementum pellentesque.,0,0,0
+556,371,1,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin risus.",0,0,0
+560,740,1,In hac habitasse platea dictumst.,0,0,0
+561,7,1,Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh.,0,0,0
+562,945,2,Vivamus tortor. Duis mattis egestas metus. Aenean fermentum.,0,0,0
+563,844,1,Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris.,0,0,0
+564,752,1,"Integer non velit. Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue.",0,0,0
+566,651,1,"Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus.",0,0,0
+567,691,2,Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.,0,0,0
+570,52,2,Etiam faucibus cursus urna.,0,0,0
+572,115,1,Nunc purus. Phasellus in felis.,0,0,0
+573,722,2,"Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.",0,0,0
+576,89,2,"Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus.",0,0,0
+578,954,1,"Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.",0,0,0
+579,512,1,Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.,0,0,0
+580,940,2,Ut at dolor quis odio consequat varius.,0,0,0
+583,639,1,Morbi a ipsum.,0,0,0
+584,315,2,Ut tellus. Nulla ut erat id mauris vulputate elementum. Nullam varius.,0,0,0
+585,970,2,"Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus. Suspendisse potenti.",0,0,0
+587,713,2,"Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus. Phasellus in felis.",0,0,0
+590,602,2,"Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.",0,0,0
+591,985,1,Integer ac neque.,0,0,0
+593,681,1,"Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.",0,0,0
+594,565,2,"Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla.",0,0,0
+597,206,1,Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem.,0,0,0
+598,480,2,"Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci.",0,0,0
+599,145,2,"Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede. Morbi porttitor lorem id ligula.",0,0,0
+603,436,1,Pellentesque ultrices mattis odio. Donec vitae nisi.,0,0,0
+604,638,1,"Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa.",0,0,0
+608,531,1,Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.,0,0,0
+609,755,2,"Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros. Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue.",0,0,0
+610,66,1,"Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue.",0,0,0
+612,304,1,Sed ante. Vivamus tortor. Duis mattis egestas metus.,0,0,0
+613,104,1,Morbi non quam nec dui luctus rutrum.,0,0,0
+614,35,2,Nullam varius.,0,0,0
+616,109,1,Duis ac nibh.,0,0,0
+617,238,2,Maecenas rhoncus aliquam lacus.,0,0,0
+620,844,1,Sed ante. Vivamus tortor.,0,0,0
+626,919,1,"Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.",0,0,0
+629,718,1,"Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.",0,0,0
+630,871,1,Suspendisse accumsan tortor quis turpis. Sed ante.,0,0,0
+632,668,2,"Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.",0,0,0
+633,784,2,In quis justo.,0,0,0
+636,381,2,"Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.",0,0,0
+637,218,1,Duis ac nibh.,0,0,0
+640,504,2,Morbi non quam nec dui luctus rutrum. Nulla tellus.,0,0,0
+642,435,2,Mauris sit amet eros. Suspendisse accumsan tortor quis turpis. Sed ante.,0,0,0
+643,680,2,"Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.",0,0,0
+644,713,1,"Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus.",0,0,0
+645,170,1,Ut tellus. Nulla ut erat id mauris vulputate elementum.,0,0,0
+648,926,2,"Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui. Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc.",0,0,0
+650,300,2,In eleifend quam a odio. In hac habitasse platea dictumst.,0,0,0
+651,459,2,Nulla ac enim.,0,0,0
+652,681,1,"Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus.",0,0,0
+656,939,1,Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio.,0,0,0
+657,268,1,In eleifend quam a odio. In hac habitasse platea dictumst.,0,0,0
+660,961,2,In hac habitasse platea dictumst. Maecenas ut massa quis augue luctus tincidunt.,0,0,0
+662,571,2,Nulla facilisi.,0,0,0
+664,603,2,"Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue.",0,0,0
+665,168,1,Nulla mollis molestie lorem. Quisque ut erat.,0,0,0
+666,672,2,Phasellus in felis.,0,0,0
+667,425,1,"Cras pellentesque volutpat dui. Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc.",0,0,0
+668,272,2,Etiam pretium iaculis justo. In hac habitasse platea dictumst.,0,0,0
+669,177,1,Maecenas rhoncus aliquam lacus.,0,0,0
+670,613,1,"Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc.",0,0,0
+671,447,2,Curabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla.,0,0,0
+672,389,2,"Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio.",0,0,0
+674,489,1,Pellentesque ultrices mattis odio.,0,0,0
+675,203,2,Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi.,0,0,0
+677,3,2,Vivamus vestibulum sagittis sapien.,0,0,0
+678,511,1,Vivamus in felis eu sapien cursus vestibulum. Proin eu mi. Nulla ac enim.,0,0,0
+679,722,2,"Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam.",0,0,1
+680,524,1,"Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien.",0,0,0
+683,51,2,Suspendisse potenti. Nullam porttitor lacus at turpis.,0,0,0
+687,81,1,Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat.,0,0,0
+689,525,2,Sed sagittis.,0,0,0
+695,106,2,"Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus.",0,0,0
+697,152,2,Quisque ut erat.,0,0,0
+699,991,1,Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio.,0,0,0
+701,993,2,Etiam pretium iaculis justo. In hac habitasse platea dictumst. Etiam faucibus cursus urna.,0,0,0
+702,225,1,"Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.",0,0,0
+703,220,2,Aenean fermentum.,0,0,0
+706,3,1,"Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",0,0,0
+708,465,1,Vestibulum sed magna at nunc commodo placerat. Praesent blandit. Nam nulla.,0,0,0
+710,611,2,"Nunc rhoncus dui vel sem. Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci.",0,0,0
+711,92,1,Nulla facilisi. Cras non velit nec nisi vulputate nonummy.,0,0,0
+713,996,2,"Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis. Fusce posuere felis sed lacus.",0,0,0
+714,852,1,Vivamus vel nulla eget eros elementum pellentesque.,0,0,0
+715,766,2,Morbi non quam nec dui luctus rutrum. Nulla tellus.,0,0,0
+716,93,1,Praesent id massa id nisl venenatis lacinia.,0,0,0
+717,77,1,"Nam dui. Proin leo odio, porttitor id, consequat in, consequat ut, nulla.",0,0,0
+718,87,2,Ut tellus. Nulla ut erat id mauris vulputate elementum.,0,0,0
+719,117,1,Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.,0,0,0
+722,621,2,"Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla.",0,0,0
+726,649,1,"Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci.",0,0,0
+729,262,2,"Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus. Pellentesque at nulla.",0,0,0
+730,415,2,Nulla nisl.,0,0,0
+731,863,1,Vivamus in felis eu sapien cursus vestibulum. Proin eu mi. Nulla ac enim.,0,0,0
+732,229,2,"Proin at turpis a pede posuere nonummy. Integer non velit. Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue.",0,0,0
+733,365,1,Aenean sit amet justo. Morbi ut odio.,0,0,0
+734,605,2,"Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",0,0,0
+739,997,2,Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem.,0,0,0
+742,455,2,"Nam dui. Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis.",0,0,0
+743,167,2,Vivamus in felis eu sapien cursus vestibulum.,0,0,0
+744,304,2,Nullam molestie nibh in lectus. Pellentesque at nulla.,0,0,0
+745,466,1,Etiam pretium iaculis justo. In hac habitasse platea dictumst. Etiam faucibus cursus urna.,0,0,0
+746,538,1,"Nam dui. Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis.",0,0,0
+748,381,2,In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.,0,0,0
+751,463,1,Pellentesque viverra pede ac diam.,0,0,0
+752,183,2,"Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.",0,0,0
+753,410,2,Etiam faucibus cursus urna.,0,0,0
+754,703,2,"Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",0,0,0
+755,300,2,Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus. Curabitur at ipsum ac tellus semper interdum.,0,0,0
+759,568,2,Maecenas ut massa quis augue luctus tincidunt.,0,0,0
+760,265,2,In eleifend quam a odio. In hac habitasse platea dictumst.,0,0,0
+762,417,2,Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus.,0,0,0
+764,999,1,"Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat.",0,0,0
+768,654,1,Ut at dolor quis odio consequat varius. Integer ac leo. Pellentesque ultrices mattis odio.,0,0,0
+769,907,2,"Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc.",0,0,0
+770,720,2,"Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius.",0,0,0
+772,274,1,Nunc purus. Phasellus in felis. Donec semper sapien a libero.,0,0,0
+775,88,2,"Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.",0,0,0
+776,757,1,Etiam justo. Etiam pretium iaculis justo. In hac habitasse platea dictumst.,0,0,0
+777,652,1,"Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel augue.",0,0,0
+779,180,2,Aliquam non mauris. Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet.,0,0,0
+780,870,2,Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus.,0,0,0
+781,472,1,Sed accumsan felis. Ut at dolor quis odio consequat varius. Integer ac leo.,0,0,0
+784,102,2,"Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.",0,0,0
+785,90,2,Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.,0,0,0
+786,680,1,Integer ac neque.,0,0,0
+788,926,2,"Morbi quis tortor id nulla ultrices aliquet. Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo.",0,0,0
+789,785,2,"Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis.",0,0,0
+790,49,1,Ut at dolor quis odio consequat varius.,0,0,0
+791,117,2,Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.,0,0,0
+793,781,1,Morbi quis tortor id nulla ultrices aliquet.,0,0,0
+794,849,1,Duis consequat dui nec nisi volutpat eleifend.,0,0,0
+795,342,2,Mauris sit amet eros.,0,0,0
+798,703,1,Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.,0,0,0
+799,54,2,Suspendisse potenti. Cras in purus eu magna vulputate luctus.,0,0,0
+801,361,1,Pellentesque viverra pede ac diam.,0,0,0
+803,392,2,"Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.",0,0,0
+805,43,2,Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi.,0,0,0
+809,603,1,Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.,0,0,0
+811,148,1,Aenean lectus. Pellentesque eget nunc.,0,0,0
+812,862,2,Curabitur gravida nisi at nibh. In hac habitasse platea dictumst.,0,0,0
+813,165,2,In hac habitasse platea dictumst.,0,0,0
+814,714,1,Sed ante. Vivamus tortor. Duis mattis egestas metus.,0,0,0
+817,152,1,"Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl. Aenean lectus. Pellentesque eget nunc.",0,0,0
+822,110,1,Nunc purus. Phasellus in felis.,0,0,0
+823,404,2,Aliquam erat volutpat.,0,0,0
+827,432,2,"Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.",0,0,0
+828,254,2,"Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est. Phasellus sit amet erat.",0,0,0
+829,106,1,Nullam molestie nibh in lectus. Pellentesque at nulla. Suspendisse potenti.,0,0,0
+831,35,2,"Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",0,0,0
+833,387,1,"Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus. Phasellus in felis.",0,0,0
+834,363,2,"Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo.",0,0,0
+835,671,1,Nullam varius. Nulla facilisi.,0,0,0
+836,580,2,Maecenas pulvinar lobortis est.,0,0,0
+837,288,2,"Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.",0,0,0
+838,206,2,"Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.",0,0,0
+840,999,2,"Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.",0,0,0
+841,74,2,Nulla tempus. Vivamus in felis eu sapien cursus vestibulum. Proin eu mi.,0,0,0
+842,283,1,"Nunc nisl. Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa.",0,0,0
+843,244,1,Suspendisse ornare consequat lectus.,0,0,0
+844,89,2,Nulla ut erat id mauris vulputate elementum. Nullam varius.,0,0,0
+845,422,2,"Aenean sit amet justo. Morbi ut odio. Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo.",0,0,0
+846,122,2,Nulla facilisi. Cras non velit nec nisi vulputate nonummy.,0,0,0
+847,561,2,Nunc rhoncus dui vel sem.,0,0,0
+849,822,1,In quis justo. Maecenas rhoncus aliquam lacus.,0,0,0
+850,676,2,"Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.",0,0,0
+852,722,2,Duis mattis egestas metus. Aenean fermentum.,0,0,0
+853,836,2,Ut at dolor quis odio consequat varius.,0,0,0
+856,219,2,Vivamus vel nulla eget eros elementum pellentesque. Quisque porta volutpat erat.,0,0,1
+858,807,2,Aliquam non mauris.,0,0,0
+862,611,1,"Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus. Suspendisse potenti.",0,0,0
+863,476,1,Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus.,0,0,0
+868,592,1,Quisque ut erat. Curabitur gravida nisi at nibh. In hac habitasse platea dictumst.,0,0,0
+869,93,1,Donec vitae nisi.,0,0,0
+870,149,2,Aenean sit amet justo. Morbi ut odio.,0,0,0
+871,75,2,"Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.",0,0,0
+872,29,2,"Morbi ut odio. Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo.",0,0,0
+873,821,2,"Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus.",0,0,0
+875,89,2,"Nunc nisl. Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa.",0,0,0
+876,836,1,Donec semper sapien a libero.,0,0,0
+877,137,2,Sed ante. Vivamus tortor.,0,0,0
+878,23,1,Pellentesque ultrices mattis odio. Donec vitae nisi.,0,0,0
+880,274,1,"Cras in purus eu magna vulputate luctus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",0,0,0
+882,672,2,Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio.,0,0,0
+884,967,2,"Nunc nisl. Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus.",0,0,0
+886,223,2,Nulla ac enim.,0,0,0
+887,54,1,Quisque ut erat. Curabitur gravida nisi at nibh. In hac habitasse platea dictumst.,0,0,0
+888,371,1,Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat.,0,0,0
+891,604,1,"Nulla nisl. Nunc nisl. Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa.",0,0,0
+892,365,2,"Cras pellentesque volutpat dui. Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc.",0,0,0
+893,685,1,Duis ac nibh.,0,0,0
+897,54,2,"Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros. Vestibulum ac est lacinia nisi venenatis tristique.",0,0,0
+898,459,2,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue.",0,0,0
+899,568,2,"Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl.",0,0,0
+901,339,1,Morbi quis tortor id nulla ultrices aliquet.,0,0,0
+902,87,2,Duis at velit eu est congue elementum. In hac habitasse platea dictumst.,0,0,0
+906,690,2,"Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa.",0,0,0
+907,578,2,"Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.",0,0,0
+908,193,2,Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum. Curabitur in libero ut massa volutpat convallis.,0,0,0
+910,926,1,Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.,0,0,0
+911,984,2,Etiam pretium iaculis justo. In hac habitasse platea dictumst. Etiam faucibus cursus urna.,0,0,0
+912,154,2,"Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla.",0,0,0
+914,106,2,Etiam pretium iaculis justo.,0,0,0
+917,24,2,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue.",0,0,0
+921,242,2,Maecenas ut massa quis augue luctus tincidunt.,0,0,0
+923,60,1,Ut tellus. Nulla ut erat id mauris vulputate elementum. Nullam varius.,0,0,0
+924,698,1,"Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.",0,0,0
+925,877,2,Pellentesque ultrices mattis odio. Donec vitae nisi.,0,0,0
+926,165,2,Integer a nibh. In quis justo.,0,0,0
+929,767,1,Nulla tellus. In sagittis dui vel nisl. Duis ac nibh.,0,0,0
+930,524,2,Nulla justo. Aliquam quis turpis eget elit sodales scelerisque.,0,0,0
+931,457,2,Vivamus in felis eu sapien cursus vestibulum. Proin eu mi. Nulla ac enim.,0,0,0
+933,230,2,Pellentesque viverra pede ac diam.,0,0,0
+936,272,1,"Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.",0,0,0
+937,478,1,Fusce consequat. Nulla nisl. Nunc nisl.,0,0,0
+938,672,1,"Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis.",0,0,0
+939,88,1,"Mauris ullamcorper purus sit amet nulla. Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam.",0,0,0
+942,413,1,Suspendisse potenti. In eleifend quam a odio.,0,0,0
+943,340,1,Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est.,0,0,1
+945,166,1,Cras pellentesque volutpat dui.,0,0,0
+946,81,1,"Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue.",0,0,0
+947,250,1,Nulla justo. Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros.,0,0,0
+948,218,1,"In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante.",0,0,0
+949,71,2,Nunc rhoncus dui vel sem. Sed sagittis.,0,0,0
+950,521,1,"Donec quis orci eget orci vehicula condimentum. Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo.",0,0,0
+952,195,1,"Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla.",0,1,1
+953,949,2,Nulla ut erat id mauris vulputate elementum. Nullam varius.,0,0,0
+954,373,1,"Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis. Fusce posuere felis sed lacus.",0,0,0
+956,437,1,Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam.,0,0,0
+958,102,2,"Proin at turpis a pede posuere nonummy. Integer non velit. Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue.",0,0,0
+959,554,2,Vestibulum rutrum rutrum neque.,0,0,0
+960,288,1,"Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo.",0,0,0
+962,111,1,"Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus. Pellentesque at nulla.",0,0,0
+963,554,1,Nulla facilisi. Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit.,0,0,0
+967,835,2,"Nam dui. Proin leo odio, porttitor id, consequat in, consequat ut, nulla.",0,0,0
+970,886,1,Nulla facilisi.,0,0,0
+975,823,2,"Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis.",0,0,0
+982,943,2,Integer a nibh. In quis justo.,0,0,0
+984,728,2,Donec semper sapien a libero. Nam dui.,0,0,0
+985,329,2,Suspendisse potenti. Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum.,0,0,0
+987,572,2,Integer a nibh. In quis justo. Maecenas rhoncus aliquam lacus.,0,0,0
+990,961,1,Nunc nisl.,0,0,0
+991,376,2,Sed sagittis.,0,0,0
+994,990,1,Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est.,0,0,1
+995,622,2,"Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.",0,0,0
+997,844,2,"Morbi ut odio. Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo.",0,0,0
+998,725,1,Nulla suscipit ligula in lacus.,0,1,1
+999,718,1,Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.,0,2,1
+1000,671,2,Curabitur convallis. Duis consequat dui nec nisi volutpat eleifend.,0,0,0
+1002,1,2,Does Material UI have an Image component?,0,0,1
+1004,1,1,How much effort do you put into commit messages?,1,0,1
+1005,1,1,How do you come up with the product names?,0,0,1
+1006,1,1,How as,1,0,1
+1007,1,1,How can blabla,0,0,1
+1009,1,2,"Besides VC, what else do you use GitHub for?",0,0,0
+1010,1,1,Why you should use Chakra UI in React JS ,1,1,3
+1011,1,1,Test notification asdfgas,0,0,0
+1012,1,1,Test notification,0,0,0
+1013,1,1,Test notification haha ok ok,0,0,0
+1015,1,1,hi,0,0,0
+1016,864,1,Test notify follow function,0,0,0
+1019,1,1,Nothing to show,0,0,0
+1020,1,1,Nothing to show,0,0,0
+1029,1,1,test save,0,0,0
+1031,1,1,test cai nhe qui zi,0,0,0
+1034,1,1,Hello mấy cưng,0,0,0
+1052,1,1,Test,0,0,0
+1053,1,1,Test,0,0,0
+1066,1,1,Nothing to show,0,0,0
+1068,1,1,test local haha,0,0,0
+1069,1,1,test draft,0,0,0
+1070,1,1,"day la draft ma, ko nen hien thi tren home",1,0,0
+1071,1,1,test date,0,1,0
+1072,1,1,Test NORMAL,-1,2,0
+1073,1,1,Test DRAFT,0,0,0
+1074,1,1,Text deraf,0,0,0
+1076,1,1,test timezone,0,0,0
+1079,977,1,Bài viết mới,1,0,0
+1080,1,1,BBBB,1,5,0
+1082,1,1,BLabla,0,0,0
+1083,1,1,asdfasdf,0,0,0
+1084,1,2,zsdfdsfa,0,0,0
+1088,129,1,taesfasf,0,0,0
+1090,1,1,asfd,1,3,2
+1091,1,1,asdfasdf,0,0,0
+1092,1,1,dinh cua chop,0,0,0
+1093,124,1,Front end vs back end developer salary,2,5,1
+1094,1,1,Tìm hiểu MYSQL Architecture,0,0,0
+1096,124,1,8 Tips To Become A Better Front End Developer,0,6,0
+1097,124,1,Why to Learn java Programming?,1,4,1
+1098,124,1,a;lskjdfalhjksdfhjkl,0,2,0
+1099,1,1,aklsjdfajklsdflhjk,1,0,1
+1100,1,1,asdfoals khjdf,0,0,0
+1101,124,1,abcd,0,6,0
+1102,1,1,ádfasdfas,0,1,0
+1103,539,2,test,0,0,0
+1104,539,1,How Prisma and Next.js Fit Together,0,0,4
+1105,1,1,Introduction to React Context API,1,11,2
+1106,1028,1,Một số mẹo điều chỉnh hiểu năng trong Mysql,0,1,0
+1107,1028,1,asdf,0,0,0
+1108,539,1,222222222222,0,0,0
+1109,539,1,"The Intuitive
+Vue Framework",0,0,0
+1110,539,1,"C++ ""Hello, World!"" Program",0,0,2
+1114,1028,1,asdasd,0,0,0
+1115,1,1,?10 Trending projects on GitHub for web developers - 6th August 2021,0,4,0
+1116,539,1,Why Learn C#?,0,0,0
+1117,1,2,dfsdfsdfds,0,0,0
+1118,1,1,Hướng dẫn deploy ReactJS without css,0,0,0
+1119,124,1,test tags,0,0,0
+1122,1,1,Đăng tiếp,0,0,0
+1123,124,1,Tuan thanh day,0,0,0
+1124,124,1,Chào Thuận,0,0,0
+1125,124,1,bai tiep theo,0,0,0
+1126,124,1,Chao cac ban,0,0,0
+1127,124,1,Thong bao den,1,1,0
+1128,124,1,Dang test thoi,0,0,0
+1129,124,1,Chao các bạn nhỏ,0,0,0
+1130,731,1,Install MySQL,0,0,0
+1131,731,1,What is DevOps?,0,0,0
+1132,731,1,Top 10 Skills That Make A ‘Perfect’ DevOps Engineer,2,3,3
+1133,124,1,Bai viet moi,0,0,0
+1134,1,1,How to Create a Modal in React,-1,1,1
+1135,124,1,Chao cac ban,0,0,0
+1136,124,1,chao,0,0,0
+1137,124,1,hello,0,0,0
+1138,124,1,chào 2,0,0,0
+1140,1,1,chắc chưua,0,0,0
+1141,124,1,Chào Đức,0,0,0
+1142,124,1,Hello,0,0,0
+1143,1034,1,Bai viet moi,0,0,0
+1144,977,1,bai viet moi,0,0,0
