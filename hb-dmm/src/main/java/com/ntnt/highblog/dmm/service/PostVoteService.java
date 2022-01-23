@@ -69,7 +69,7 @@ public class PostVoteService {
     private void validatePostVoteBeforeSave(final PostVote postVote) {
         if (ObjectUtils.isEmpty(postVote.getId()))
             throw new ValidatorException("Invalid post id", "id");
-        if (postVote.getUserId() != SecurityHelper.getCurrentUserId())
+        if (!postVote.getUserId().equals(SecurityHelper.getCurrentUserId()))
             throw new ValidatorException("Invalid user id", "userId");
     }
 }
