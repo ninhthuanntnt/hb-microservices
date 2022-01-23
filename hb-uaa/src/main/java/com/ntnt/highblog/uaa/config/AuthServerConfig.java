@@ -69,6 +69,7 @@ public class AuthServerConfig {
                                 redirectUris.add("https://oauth.pstmn.io/v1/callback");
                                 redirectUris.add("http://127.0.0.1:8080/login/oauth2/code/hb-gateway");
                                 redirectUris.add("http://localhost:8080/authorized");
+                                redirectUris.add("http://127.0.0.1:3000/login");
                             })
                             .scope(OidcScopes.OPENID)
                             .scope("notification.read")

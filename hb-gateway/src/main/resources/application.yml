@@ -60,6 +60,7 @@ spring:
         - SetHeaderByCookieFilter
         - TokenRelay=
         - RemoveRequestHeader=Cookie
+        - Retry=
   security:
     oauth2:
       resourceserver:
@@ -81,6 +82,7 @@ spring:
             issuer-uri: http://127.0.0.1:8280
             token-uri: http://127.0.0.1:8280/oauth2/token
             jwk-set-uri: http://127.0.0.1:8280/oauth2/jwks
+            user-info-uri: http://127.0.0.1:8280/api/v1/profiles
             user-name-attribute: sub
 application:
   uri:
