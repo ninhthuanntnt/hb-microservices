@@ -1,7 +1,7 @@
 package com.ntnt.highblog.dmm.service.neo4j;
 
 import com.ntnt.highblog.dmm.model.entity.neo4j.PostNode;
-import com.ntnt.highblog.dmm.repository.neo4j.PostNodeRepository;
+import com.ntnt.highblog.dmm.neo4j.repository.PostNodeRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;

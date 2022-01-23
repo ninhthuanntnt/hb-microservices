@@ -1,4 +1,4 @@
-package com.ntnt.highblog.dmm.repository.neo4j;
+package com.ntnt.highblog.dmm.neo4j.repository;
 
 import com.ntnt.highblog.dmm.model.entity.neo4j.PostNode;
 import org.springframework.data.neo4j.repository.Neo4jRepository;
@@ -11,14 +11,14 @@ public interface PostNodeRepository extends Neo4jRepository<PostNode, Long> {
         + " WHERE NOT EXISTS ((user)-[:IS_AUTHOR]->(otherPost))"
         + "       AND NOT EXISTS ((user)-[:IS_AUTHOR]->(post))"
         + " OPTIONAL MATCH (user)-[readOtherPost:READ]->(otherPost)"
-        + " WITH post, otherPost, tag, COUNT(DISTINCT readOtherPost) AS read, COUNT(DISTINCT tag) AS tagIntersection"
+        + " WITH post, otherPost, COUNT(DISTINCT readOtherPost) AS read, COUNT(DISTINCT tag) AS tagIntersection"
         + " MATCH (post)-[:HAS_TAG]->(tagOfPost:Tag)"
-        + " WITH post, otherPost, tag, read, tagIntersection, COLLECT(DISTINCT tagOfPost.id) AS tagOfPostId"
+        + " WITH post, otherPost, read, tagIntersection, COLLECT(DISTINCT tagOfPost.id) AS tagOfPostId"
         + " MATCH (otherPost)-[:HAS_TAG]->(tagOfOtherPost:Tag)"
-        + " WITH post, otherPost, tag, read, tagIntersection, tagOfPostId, COLLECT(DISTINCT tagOfOtherPost.id) AS tagOfOtherPostId"
-        + " WITH post, otherPost, tag, read, tagIntersection, tagOfPostId, tagOfOtherPostId, tagOfPostId+[x IN tagOfOtherPostId WHERE NOT x IN tagOfPostId] AS unionTag "
+        + " WITH post, otherPost, read, tagIntersection, tagOfPostId, COLLECT(DISTINCT tagOfOtherPost.id) AS tagOfOtherPostId"
+        + " WITH post, otherPost, read, tagIntersection, tagOfPostId, tagOfOtherPostId, tagOfPostId+[x IN tagOfOtherPostId WHERE NOT x IN tagOfPostId] AS unionTag "
         + " WITH otherPost, ((1.0*tagIntersection)/SIZE(unionTag)) AS jaccard"
-        + " ORDER BY read ASC, jaccard DESC, otherPost.numberOfVotes DESC, otherPost.numberOfFavorites DESC, otherPost.title DESC, id(otherPost) ASC"
+        + " ORDER BY read ASC, jaccard DESC, tagIntersection DESC, otherPost.numberOfVotes DESC, otherPost.numberOfFavorites DESC, otherPost.title DESC, id(otherPost) ASC"
         + " RETURN DISTINCT otherPost"
         + " SKIP $skip LIMIT $limit")
     List<PostNode> fetchRecommendPostsByUserId(Long userId, Long skip, Integer limit);
@@ -26,11 +26,11 @@ public interface PostNodeRepository extends Neo4jRepository<PostNode, Long> {
     @Query("MATCH (user:User {id: $userId})-[:READ]->(post:Post)-[:HAS_TAG]->(tag:Tag)<-[:HAS_TAG]-(otherPost:Post)"
         + " WHERE NOT EXISTS ((user)-[:IS_AUTHOR]->(otherPost))"
         + "       AND NOT EXISTS ((user)-[:IS_AUTHOR]->(post))"
-        + " WITH post, otherPost, tag, COUNT(DISTINCT tag) AS tagIntersection"
+        + " WITH post, otherPost, COUNT(DISTINCT tag) AS tagIntersection"
         + " MATCH (post)-[:HAS_TAG]->(tagOfPost:Tag)"
-        + " WITH post, otherPost, tag, tagIntersection, COLLECT(DISTINCT tagOfPost.id) AS tagOfPostId"
+        + " WITH post, otherPost, tagIntersection, COLLECT(DISTINCT tagOfPost.id) AS tagOfPostId"
         + " MATCH (otherPost)-[:HAS_TAG]->(tagOfOtherPost:Tag)"
-        + " WITH post, otherPost, tag, tagIntersection, tagOfPostId, COLLECT(DISTINCT tagOfOtherPost.id) AS tagOfOtherPostId"
+        + " WITH post, otherPost, tagIntersection, tagOfPostId, COLLECT(DISTINCT tagOfOtherPost.id) AS tagOfOtherPostId"
         + " RETURN COUNT(DISTINCT otherPost)")
     int countRecommendPostsByUserId(Long userId);
 
@@ -38,15 +38,15 @@ public interface PostNodeRepository extends Neo4jRepository<PostNode, Long> {
         + " MATCH (post:Post {id: $id})-[:HAS_TAG]->(tag:Tag)<-[:HAS_TAG]-(otherPost:Post)"
         + " WHERE NOT EXISTS ((user)-[:READ]->(otherPost))"
         + "       AND NOT EXISTS ((user)-[:IS_AUTHOR]->(otherPost))"
-        + "       AND NOT EXISTS ((user)-[:IS_AUTHOR]->(post))"
-        + " WITH post, otherPost, tag, COUNT(DISTINCT tag) AS tagIntersection"
+        + " OPTIONAL MATCH (user)-[readOtherPost:READ]->(otherPost)"
+        + " WITH post, otherPost, COUNT(DISTINCT readOtherPost) AS read, COUNT(DISTINCT tag) AS tagIntersection"
         + " MATCH (post)-[:HAS_TAG]->(tagOfPost:Tag)"
-        + " WITH post, otherPost, tag, tagIntersection, COLLECT(DISTINCT tagOfPost.id) AS tagOfPostId"
+        + " WITH post, otherPost, read, tagIntersection, COLLECT(DISTINCT tagOfPost.id) AS tagOfPostId"
         + " MATCH (otherPost)-[:HAS_TAG]->(tagOfOtherPost:Tag)"
-        + " WITH post, otherPost, tag, tagIntersection, tagOfPostId, COLLECT(DISTINCT tagOfOtherPost.id) AS tagOfOtherPostId"
-        + " WITH post, otherPost, tag, tagIntersection, tagOfPostId, tagOfOtherPostId, tagOfPostId+[x IN tagOfOtherPostId WHERE NOT x IN tagOfPostId] AS unionTag "
+        + " WITH post, otherPost, read, tagIntersection, tagOfPostId, COLLECT(DISTINCT tagOfOtherPost.id) AS tagOfOtherPostId"
+        + " WITH post, otherPost, read, tagIntersection, tagOfPostId, tagOfOtherPostId, tagOfPostId+[x IN tagOfOtherPostId WHERE NOT x IN tagOfPostId] AS unionTag "
         + " WITH otherPost, ((1.0*tagIntersection)/SIZE(unionTag)) AS jaccard"
-        + " ORDER BY jaccard DESC, otherPost.numberOfVotes DESC, otherPost.numberOfFavorites DESC, otherPost.title DESC, id(otherPost) ASC"
+        + " ORDER BY read ASC, jaccard DESC, tagIntersection DESC, otherPost.numberOfVotes DESC, otherPost.numberOfFavorites DESC, otherPost.title DESC, id(otherPost) ASC"
         + " RETURN DISTINCT otherPost"
         + " SKIP $skip LIMIT $limit")
     List<PostNode> fetchRecommendPostsByIdAndUserId(Long id, Long userId, Long skip, Integer limit);
@@ -56,11 +56,11 @@ public interface PostNodeRepository extends Neo4jRepository<PostNode, Long> {
         + " WHERE NOT EXISTS ((user)-[:READ]->(otherPost))"
         + "       AND NOT EXISTS ((user)-[:IS_AUTHOR]->(otherPost))"
         + "       AND NOT EXISTS ((user)-[:IS_AUTHOR]->(post))"
-        + " WITH post, otherPost, tag, COUNT(DISTINCT tag) AS tagIntersection"
+        + " WITH post, otherPost, COUNT(DISTINCT tag) AS tagIntersection"
         + " MATCH (post)-[:HAS_TAG]->(tagOfPost:Tag)"
-        + " WITH post, otherPost, tag, tagIntersection, COLLECT(DISTINCT tagOfPost.id) AS tagOfPostId"
+        + " WITH post, otherPost, tagIntersection, COLLECT(DISTINCT tagOfPost.id) AS tagOfPostId"
         + " MATCH (otherPost)-[:HAS_TAG]->(tagOfOtherPost:Tag)"
-        + " WITH post, otherPost, tag, tagIntersection, tagOfPostId, COLLECT(DISTINCT tagOfOtherPost.id) AS tagOfOtherPostId"
+        + " WITH post, otherPost, tagIntersection, tagOfPostId, COLLECT(DISTINCT tagOfOtherPost.id) AS tagOfOtherPostId"
         + " RETURN COUNT(DISTINCT otherPost)")
     int countRecommendPostsByIdAndUserId(Long id, Long userId);
 }
