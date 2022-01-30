@@ -7,11 +7,10 @@ import com.ntnt.highblog.dmm.model.entity.Comment;
 import com.ntnt.highblog.dmm.repository.CommentRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.ObjectUtils;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.List;
 
 @Slf4j
 @Service
@@ -24,10 +23,10 @@ public class CommentService {
     }
 
     @Transactional(readOnly = true)
-    public List<Comment> fetchByPostIdWithPageRequest(final Long postId, final PageRequest pageRequest) {
+    public Page<Comment> fetchByPostIdWithPageRequest(final Long postId, final Long parentId, final PageRequest pageRequest) {
         log.info("Fetch comments by post id #{} with pageRequest #{}", postId, pageRequest);
 
-        return repository.findByPostId(postId, pageRequest);
+        return repository.fetchByPostIdAndParentId(postId, parentId, pageRequest);
     }
 
     @Transactional(readOnly = true)

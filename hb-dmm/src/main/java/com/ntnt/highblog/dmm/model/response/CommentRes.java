@@ -24,6 +24,8 @@ public class CommentRes {
 
     private Long numberOfVotes;
 
+    private Long numberOfChildComments;
+
     @JsonProperty("childComments")
     private List<CommentRes> childCommentsRes;
 

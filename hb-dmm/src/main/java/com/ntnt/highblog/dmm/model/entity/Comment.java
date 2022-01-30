@@ -49,8 +49,20 @@ public class Comment
     private Long numberOfVotes = 0L;
 
     @Transient
+    private Long numberOfChildComments;
+
+    @Transient
     private List<Comment> childComments;
 
     @Transient
     private User user;
+
+    public Comment(Long id, Long parentId, Long userId, Long postId, String content, Long numberOfChildComments) {
+        this.id = id;
+        this.parentId = id;
+        this.userId = userId;
+        this.postId = postId;
+        this.content = content;
+        this.numberOfChildComments = numberOfChildComments;
+    }
 }

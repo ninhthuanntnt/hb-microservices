@@ -8,6 +8,7 @@ import com.ntnt.highblog.dmm.service.CommentService;
 import com.ntnt.highblog.dmm.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.ObjectUtils;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -30,18 +31,19 @@ public class CommentListBloc {
 
 
     @Transactional(readOnly = true)
-    public List<Comment> fetchCommentsByPostId(final CommentListReq commentListReq) {
+    public Page<Comment> fetchComments(final CommentListReq commentListReq) {
         log.info("Fetch comments with data #{}", commentListReq);
         PageRequest pageRequest = PaginationHelper.generatePageRequest(commentListReq);
-        List<Comment> comments = commentService.fetchByPostIdWithPageRequest(commentListReq.getPostId(),
+        Page<Comment> comments = commentService.fetchByPostIdWithPageRequest(commentListReq.getPostId(),
+                                                                             commentListReq.getParentId(),
                                                                              pageRequest);
 
         includeUserToComments(comments);
 
-        return populateComments(comments);
+        return comments;
     }
 
-    private void includeUserToComments(List<Comment> comments) {
+    private void includeUserToComments(Page<Comment> comments) {
         Map<Long, User> users = userService.fetchByIdIn(comments.stream()
                                                                 .map(Comment::getUserId)
                                                                 .collect(Collectors.toList()))
@@ -50,21 +52,21 @@ public class CommentListBloc {
 
         comments.forEach(comment -> comment.setUser(users.get(comment.getUserId())));
     }
-
-    private List<Comment> populateComments(final List<Comment> comments) {
-        List<Comment> rootComment = comments.stream()
-                                            .filter(comment -> ObjectUtils.isEmpty(comment.getParentId()))
-                                            .collect(Collectors.toList());
-
-        Map<Long, List<Comment>> childCommentsMap =
-                comments.stream()
-                        .filter(comment -> ObjectUtils.isNotEmpty(comment.getParentId()))
-                        .sorted((o1, o2) -> Long.compare(o2.getId(), o1.getId()))
-                        .collect(Collectors.groupingBy(Comment::getParentId));
-
-
-        rootComment.forEach(comment -> comment.setChildComments(childCommentsMap.get(comment.getId())));
-
-        return rootComment;
-    }
+//
+//    private Page<Comment> populateComments(final Page<Comment> comments) {
+//        List<Comment> rootComment = comments.stream()
+//                                            .filter(comment -> ObjectUtils.isEmpty(comment.getParentId()))
+//                                            .collect(Collectors.toList());
+//
+//        Map<Long, List<Comment>> childCommentsMap =
+//                comments.stream()
+//                        .filter(comment -> ObjectUtils.isNotEmpty(comment.getParentId()))
+//                        .sorted((o1, o2) -> Long.compare(o2.getId(), o1.getId()))
+//                        .collect(Collectors.groupingBy(Comment::getParentId));
+//
+//
+//        rootComment.forEach(comment -> comment.setChildComments(childCommentsMap.get(comment.getId())));
+//
+//        return rootComment;
+//    }
 }

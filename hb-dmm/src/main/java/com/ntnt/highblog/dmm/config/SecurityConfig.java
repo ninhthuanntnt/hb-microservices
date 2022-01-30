@@ -14,7 +14,8 @@ import org.springframework.web.client.RestTemplate;
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
+public class SecurityConfig
+    extends WebSecurityConfigurerAdapter {
 
     @LoadBalanced
     @Bean
@@ -33,9 +34,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     protected void configure(HttpSecurity http)
         throws Exception {
-        http.authorizeRequests(authorize -> authorize.antMatchers("/actuator/health", "/api/v1/profiles").permitAll())
+        http
+            .authorizeRequests(authorize -> {
+                authorize.antMatchers("/actuator/health",
+                                      "/api/v1/profiles",
+                                      "/api/v1/**").permitAll();
+                authorize.antMatchers("/api/v1/user/**")
+                         .authenticated();
+            })
             .oauth2ResourceServer(httpSecurityOAuth2ResourceServerConfigurer -> {
-              httpSecurityOAuth2ResourceServerConfigurer.jwt();
+                httpSecurityOAuth2ResourceServerConfigurer.jwt();
             });
     }
 }

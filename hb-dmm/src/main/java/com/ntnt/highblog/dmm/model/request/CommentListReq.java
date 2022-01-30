@@ -15,4 +15,5 @@ import lombok.experimental.SuperBuilder;
 @Builder
 public class CommentListReq extends BasePaginationReq {
     private Long postId;
+    private Long parentId;
 }
