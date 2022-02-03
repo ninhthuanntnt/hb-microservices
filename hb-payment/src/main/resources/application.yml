@@ -1,4 +1,19 @@
 spring:
+  datasource:
+    url: ${HB_DB_URL}
+    username: ${HB_DB_USERNAME}
+    password: ${HB_DB_PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: none
+    open-in-view: false
+    properties:
+      hibernate.jdbc.batch_size: 50
+  liquibase:
+    change-log: classpath:config/liquibase_ext/master.xml
+    url: ${HB_DB_URL}
+    user: ${HB_DB_USERNAME}
+    password: ${HB_DB_PASSWORD}
   cloud:
     consul:
       ribbon:
@@ -12,8 +27,17 @@ spring:
 
 server:
   port: 0
+
 feign:
   circuitbreaker:
     enabled: true
     group:
       enabled: true
+
+application:
+  cors:
+    allowed-origin: ${HB_ALLOWED_ORIGIN}
+  paypal:
+    client-id: ${HB_PAYPAL_CLIENT_ID}
+    client-secret: ${HB_PAYPAL_CLIENT_SECRET}
+    environment: ${HB_PAYPAL_ENVIRONMENT}
