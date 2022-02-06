@@ -9,7 +9,6 @@ spring:
     open-in-view: false
     properties:
       hibernate.jdbc.batch_size: 50
-    show-sql: true
   liquibase:
     change-log: classpath:config/liquibase_ext/master.xml
     url: ${HB_DB_URL}
