@@ -1,6 +1,7 @@
 package com.ntnt.highblog.payment.helper;
 
 import com.ntnt.highblog.payment.error.exception.ObjectNotFoundException;
+import org.apache.commons.lang3.ObjectUtils;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.oauth2.jwt.Jwt;
@@ -48,7 +49,7 @@ public final class SecurityHelper {
 
     public static Optional<String> getNullableCurrentUsername() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        if (authentication.getPrincipal() instanceof Jwt) {
+        if (ObjectUtils.isNotEmpty(authentication) && authentication.getPrincipal() instanceof Jwt) {
             Jwt jwt = (Jwt) authentication.getPrincipal();
 
             return Optional.ofNullable(jwt.getSubject());

@@ -39,6 +39,6 @@ public class UserTransactionRes {
 
     private BigDecimal balance;
 
-    private Instant createdDate;
+    private Long createdDate;
 
 }

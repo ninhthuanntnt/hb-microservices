@@ -9,7 +9,7 @@ import com.ntnt.highblog.payment.error.exception.ValidatorException;
 import com.ntnt.highblog.payment.helper.CodeHelper;
 import com.ntnt.highblog.payment.helper.SecurityHelper;
 import com.ntnt.highblog.payment.model.dto.request.DonationReq;
-import com.ntnt.highblog.payment.model.dto.response.UserRes;
+import com.ntnt.highblog.payment.model.dto.response.UserDetailRes;
 import com.ntnt.highblog.payment.model.entity.SystemTransaction;
 import com.ntnt.highblog.payment.model.entity.UserTransaction;
 import com.ntnt.highblog.payment.model.entity.Wallet;
@@ -55,7 +55,7 @@ public class DonationBloc {
         BigDecimal amount = donationReq.getAmount();
 
         Long senderId = SecurityHelper.getCurrentUserId();
-        ResponseEntity<UserRes> res = hbDmmClient.getUserDetailByNickname(donationReq.getNickName());
+        ResponseEntity<UserDetailRes> res = hbDmmClient.getUserDetailByNickname(donationReq.getNickName());
 
         if (res.getStatusCode().isError()) {
             throw new ValidatorException("User not found", "nickname");

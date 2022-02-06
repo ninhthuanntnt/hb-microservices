@@ -1,5 +1,6 @@
 package com.ntnt.highblog.payment.api.client;
 
+import com.ntnt.highblog.payment.model.dto.response.UserDetailRes;
 import com.ntnt.highblog.payment.model.dto.response.UserRes;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
@@ -11,6 +12,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 @FeignClient(name = "hb-dmm")
 public interface HbDmmClient {
 
-    @GetMapping("/api/v1/user/users/{nickname}")
-    ResponseEntity<UserRes> getUserDetailByNickname(@PathVariable String nickname);
+    @GetMapping("/api/v1/internal/users/{nickname}")
+    ResponseEntity<UserDetailRes> getUserDetailByNickname(@PathVariable String nickname);
 }
