@@ -2,7 +2,8 @@ package com.ntnt.highblog.notification.error.exception;
 
 import java.util.Optional;
 
-public class ValidatorException extends RuntimeException{
+public class ValidatorException
+    extends RuntimeException {
     private final String fieldName;
     private final String errorCode;
     private static final String DEFAULT_ERROR_CODE = "HB-0100";
@@ -28,13 +29,13 @@ public class ValidatorException extends RuntimeException{
     public ValidatorException(final String message, final Throwable cause, final String fieldName, final String errorCode) {
         super(message, cause);
         this.fieldName = fieldName;
-        this.errorCode = (String)Optional.ofNullable(errorCode).orElse("HB-0100");
+        this.errorCode = (String) Optional.ofNullable(errorCode).orElse("HB-0100");
     }
 
     public ValidatorException(final Throwable cause, final String fieldName, final String errorCode) {
         super(cause);
         this.fieldName = fieldName;
-        this.errorCode = (String)Optional.ofNullable(errorCode).orElse("HB-0100");
+        this.errorCode = (String) Optional.ofNullable(errorCode).orElse("HB-0100");
     }
 
     public String getFieldName() {

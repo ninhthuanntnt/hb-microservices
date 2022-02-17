@@ -4,6 +4,7 @@ import com.ntnt.highblog.notification.error.exception.ObjectNotFoundException;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.oauth2.jwt.Jwt;
+import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationToken;
 
 import java.util.Optional;
 
@@ -22,6 +23,16 @@ public final class SecurityHelper {
         }
 
         throw new ObjectNotFoundException(DEFAULT_USER_ID_JWT_CLAIM);
+    }
+
+    public static String getCurrentAccessToken() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication.getPrincipal() instanceof Jwt) {
+            Jwt jwt = (Jwt) authentication.getPrincipal();
+
+            return jwt.getTokenValue();
+        }
+        throw new ObjectNotFoundException("accessToken");
     }
 
     public static Optional<Long> getNullableCurrentUserId() {
