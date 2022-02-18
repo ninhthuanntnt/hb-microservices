@@ -2,6 +2,7 @@ package com.ntnt.highblog.gateway.security;
 
 import com.ntnt.highblog.gateway.helper.CookieHelper;
 import org.springframework.http.HttpCookie;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.oauth2.client.OAuth2AuthorizedClient;
 import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
@@ -55,6 +56,9 @@ public class CustomAuthorizedClientRepository
                                                       jwtAuthenticationToken.getToken().getIssuedAt(),
                                                       jwtAuthenticationToken.getToken().getExpiresAt());
             principalName = jwtAuthenticationToken.getName();
+        } else if (principal instanceof AnonymousAuthenticationToken) {
+            AnonymousAuthenticationToken anonymousAuthenticationToken = (AnonymousAuthenticationToken) principal;
+            principalName = anonymousAuthenticationToken.getName();
         }
 
 

@@ -12,6 +12,23 @@ spring:
         health-check-timeout: 120s
         prefer-ip-address: true
     gateway:
+      filter:
+        remove-non-proxy-headers:
+          headers:
+            - Proxy-Authenticate
+            - Proxy-Authorization
+            - Keep-Alive
+            - TE
+            - Trailer
+            - Transfer-Encoding
+#      globalcors:
+#        cors-configurations:
+#          '[/**]':
+#            allowedOrigins: http://127.0.0.1:3000
+#            allowedMethods: GET,PUT,POST,DELETE,OPTIONS,PATCH
+#            allowedHeaders: x-requested-with,authorization,Content-Type,Content-Length,Authorization,credential,X-XSRF-TOKEN
+#            allowCredentials: true
+#            maxAge: 7200
       discovery:
         locator:
           enabled: true
@@ -54,12 +71,18 @@ spring:
             - Path=/hb-notification/**
           filters:
             - RewritePath=/hb-notification/(?<path>.*), /$\{path}path
+        - id: hb-notification-ws-route
+          uri: lb:ws://hb-notification
+          predicates:
+            - Path=/hb-notification/**
+          filters:
+            - RewritePath=/hb-notification/(?<path>.*), /$\{path}path
       httpclient:
         connect-timeout: 5000
       default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
         - SetHeaderByCookieFilter
         - TokenRelay=
-        - RemoveRequestHeader=Cookie
         - Retry=
   security:
     oauth2:
