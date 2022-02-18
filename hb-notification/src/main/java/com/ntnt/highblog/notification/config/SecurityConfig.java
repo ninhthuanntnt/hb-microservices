@@ -35,8 +35,9 @@ public class SecurityConfig
     protected void configure(HttpSecurity http)
         throws Exception {
         http.authorizeRequests(authorize -> authorize.antMatchers("/actuator/**",
-                                                                  "/notification/**").permitAll()
-                                                     .anyRequest()
+                                                                  "/notification/**",
+                                                                  "/api/v1/internal/**").permitAll()
+                                                     .antMatchers("/api/v1/user/**")
                                                      .authenticated())
             .oauth2ResourceServer()
             .jwt();

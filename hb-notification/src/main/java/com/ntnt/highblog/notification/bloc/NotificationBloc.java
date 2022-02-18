@@ -6,6 +6,7 @@ import com.ntnt.highblog.notification.error.exception.ValidatorException;
 import com.ntnt.highblog.notification.helper.SecurityHelper;
 import com.ntnt.highblog.notification.mapper.NotificationMapper;
 import com.ntnt.highblog.notification.model.dto.request.NotificationCreateReq;
+import com.ntnt.highblog.notification.model.dto.request.NotificationSenderReq;
 import com.ntnt.highblog.notification.model.dto.response.AccountRes;
 import com.ntnt.highblog.notification.model.dto.response.NotificationRes;
 import com.ntnt.highblog.notification.model.dto.response.NotificationSenderRes;
@@ -58,7 +59,8 @@ public class NotificationBloc {
 
     @Async
     public void pushNotificationToFollowers(final Long senderId,
-                                            final Notification notification) {
+                                            final Notification notification,
+                                            final NotificationSenderReq notificationSenderReq) {
         log.info("Push notification to followers with senderId #{} and data #{}",
                  senderId,
                  notification);
@@ -70,14 +72,16 @@ public class NotificationBloc {
                                              .stream()
                                              .map(SubscriptionRes::getFollowerId)
                                              .collect(Collectors.toList()),
-                               notification);
+                               notification,
+                               notificationSenderReq);
         }
 
     }
 
     @Async
     public void pushNotificationTo(final List<Long> receiverIds,
-                                   final Notification notification) {
+                                   final Notification notification,
+                                   final NotificationSenderReq notificationSenderReq) {
         log.info("Push notification to receivers #{} with data #{}",
                  receiverIds,
                  notification);
@@ -86,6 +90,10 @@ public class NotificationBloc {
         userNotificationService.saveNewAll(receiverIds, notification.getId());
 
         NotificationRes notificationRes = NotificationMapper.INSTANCE.toNotificationRes(notification);
+        notificationRes.setSenderRes(NotificationSenderRes.builder()
+                                                          .nickName(notificationSenderReq.getNickName())
+                                                          .imagePath(notificationSenderReq.getImagePath())
+                                                          .build());
 
         ResponseEntity<List<AccountRes>> responseEntity = hbUaaClient.fetchAccountsByUserIdIn(receiverIds);
 
@@ -101,16 +109,30 @@ public class NotificationBloc {
 
     @Async
     public void createNotification(final NotificationCreateReq notificationCreateReq) {
+        log.info("Create and push notification #{}", notificationCreateReq);
 
+        Long currentUserId = SecurityHelper.getCurrentUserId();
+
+        Notification notification = Notification.builder()
+                                                .senderId(currentUserId)
+                                                .content(notificationCreateReq.getContent())
+                                                .sourceId(notificationCreateReq.getSourceId())
+                                                .type(notificationCreateReq.getNotificationType())
+                                                .build();
+
+        pushNotificationTo(notificationCreateReq.getReceiverIds(),
+                           notification,
+                           notificationCreateReq.getNotificationSenderReq());
     }
 
     @Async
     public void pushNotificationTo(final Long receiverId,
-                                   final Notification notification) {
+                                   final Notification notification,
+                                   final NotificationSenderReq notificationSenderReq) {
         log.info("Push notification to receiver #{} with data #{}",
                  receiverId,
                  notification);
-        pushNotificationTo(Collections.singletonList(receiverId), notification);
+        pushNotificationTo(Collections.singletonList(receiverId), notification, notificationSenderReq);
     }
 
     @Async

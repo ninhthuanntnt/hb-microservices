@@ -4,6 +4,7 @@ import com.ntnt.highblog.notification.bloc.NotificationBloc;
 import com.ntnt.highblog.notification.model.dto.request.NotificationCreateReq;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,7 +20,11 @@ public class NotificationCrudController {
     }
 
     @PostMapping
-    public ResponseEntity<?> createNotification(@Valid NotificationCreateReq notificationCreateReq) {
+    public ResponseEntity<?> createNotification(@RequestBody @Valid
+                                                        NotificationCreateReq notificationCreateReq) {
 
+        notificationBloc.createNotification(notificationCreateReq);
+
+        return ResponseEntity.ok().build();
     }
 }

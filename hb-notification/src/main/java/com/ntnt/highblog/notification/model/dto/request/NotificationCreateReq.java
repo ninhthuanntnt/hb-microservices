@@ -9,6 +9,8 @@ import lombok.Setter;
 
 import javax.validation.constraints.NotNull;
 
+import java.util.List;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -19,11 +21,14 @@ public class NotificationCreateReq {
     @NotNull
     private String content;
 
-    private String sourceId;
+    private Long sourceId;
 
     @NotNull
     private NotificationType notificationType;
 
     @NotNull
     private NotificationSenderReq notificationSenderReq;
+
+    @NotNull
+    private List<Long> receiverIds;
 }
