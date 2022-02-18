@@ -24,13 +24,13 @@ public class FileCrudBloc {
     @Transactional
     public File uploadImage(final FileReq fileReq) {
 
-        String path = fileService.saveNewImageToStorage(fileReq.getImage());
+        String path = fileService.saveNewImageToStorage(fileReq.getFile());
 
         String name = fileReq.getName();
 
         log.info("Upload image with path #{}", path);
         if (ObjectUtils.isEmpty(name)) {
-            name = fileReq.getImage().getOriginalFilename();
+            name = fileReq.getFile().getOriginalFilename();
         }
 
         return fileService.saveNew(buildFileToSaveNew(name, path));

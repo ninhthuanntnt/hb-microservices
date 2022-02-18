@@ -20,8 +20,6 @@ import java.time.Instant;
 public interface PostMapper {
     PostMapper INSTANCE = Mappers.getMapper(PostMapper.class);
 
-
-    @Mapping(target = "postTags", source = "tagCreateReqs")
     Post toPost(PostCreateReq postCreateReq);
 
     @Mapping(target = "postTags", source = "tagCreateReqs")

@@ -11,6 +11,7 @@ import lombok.Setter;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
+import java.util.Collections;
 import java.util.List;
 
 @Getter
@@ -38,6 +39,7 @@ public class PostCreateReq {
     @NotNull
     private PostType postType;
 
+    @Builder.Default
     @JsonProperty("tags")
-    private List<TagCreateReq> tagCreateReqs;
+    private List<TagCreateReq> tagCreateReqs = Collections.emptyList();
 }

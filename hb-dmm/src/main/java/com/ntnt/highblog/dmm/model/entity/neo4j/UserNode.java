@@ -26,7 +26,7 @@ public class UserNode {
     private String nickName;
 
     @Relationship(type = "IS_AUTHOR", direction = Relationship.Direction.OUTGOING)
-    private List<PostNode> isAuthorPostNodes;
+    private List<PostNode> authorPostNodes;
 
     @Relationship(type = "READ", direction = Relationship.Direction.OUTGOING)
     private List<PostNode> readPostNodes;

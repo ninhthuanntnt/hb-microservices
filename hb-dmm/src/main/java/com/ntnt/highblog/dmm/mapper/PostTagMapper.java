@@ -14,7 +14,6 @@ public interface PostTagMapper {
     PostTagMapper INSTANCE = Mappers.getMapper(PostTagMapper.class);
 
     @Mappings({
-            @Mapping(target = "tagId", source = "id"),
             @Mapping(target = "id", ignore = true)
     })
     PostTag toPostTag(TagCreateReq tagCreateReq);

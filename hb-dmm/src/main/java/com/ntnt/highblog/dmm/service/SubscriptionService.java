@@ -67,7 +67,7 @@ public class SubscriptionService {
     }
 
     @Transactional(readOnly = true)
-    public List<Long> fetchFollowerIdsByUserId(final Long userId) {
+    public List<Subscription> fetchFollowerIdsByUserId(final Long userId) {
         log.info("Fetch follower ids by userId #{}", userId);
 
         return repository.findFollowerIdsByUserId(userId);

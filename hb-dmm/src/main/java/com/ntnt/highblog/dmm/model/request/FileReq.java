@@ -19,5 +19,5 @@ public class FileReq {
     private String name;
 
     @NotNull
-    private MultipartFile image;
+    private MultipartFile file;
 }

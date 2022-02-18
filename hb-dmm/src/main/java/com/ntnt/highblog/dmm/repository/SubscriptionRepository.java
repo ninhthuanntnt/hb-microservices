@@ -24,7 +24,7 @@ public interface SubscriptionRepository
     boolean existsByUserIdAndFollowerId(@Param("userId") Long userId, @Param("followerId") Long followerId);
 
 
-    @Query("SELECT s.followerId FROM Subscription s"
+    @Query("SELECT s FROM Subscription s"
             + " WHERE s.userId = :userId")
-    List<Long> findFollowerIdsByUserId(@Param("userId") Long userId);
+    List<Subscription> findFollowerIdsByUserId(@Param("userId") Long userId);
 }

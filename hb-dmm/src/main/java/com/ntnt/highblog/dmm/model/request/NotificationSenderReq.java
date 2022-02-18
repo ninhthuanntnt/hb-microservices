@@ -11,6 +11,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class TagCreateReq {
-    private String name;
+public class NotificationSenderReq {
+    private String nickName;
+    private String imagePath;
 }

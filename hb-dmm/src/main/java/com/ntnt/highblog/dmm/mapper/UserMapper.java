@@ -10,6 +10,7 @@ import org.mapstruct.MappingTarget;
 import org.mapstruct.factory.Mappers;
 
 import java.time.Instant;
+import java.util.List;
 
 import static org.mapstruct.ReportingPolicy.IGNORE;
 
@@ -20,6 +21,8 @@ public interface UserMapper {
     UserRes toUserRes(User user);
 
     UserDetailRes toUserDetailRes(User user);
+
+    List<UserRes> toListUserRes(List<User> users);
 
     User toUser(UserUpdateReq userUpdateReq, @MappingTarget User dbUser);
 

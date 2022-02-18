@@ -8,6 +8,8 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Slf4j
 @Service
 public class PostNodeService {
@@ -34,5 +36,11 @@ public class PostNodeService {
                                                                                   pageRequest.getPageSize()),
                               pageRequest,
                               postNodeRepository.countRecommendPostsByIdAndUserId(id, userId));
+    }
+
+    public void saveAll(List<PostNode> postNodes) {
+        log.info("Save all postNodes #{}", postNodes);
+
+        postNodeRepository.saveAll(postNodes);
     }
 }
