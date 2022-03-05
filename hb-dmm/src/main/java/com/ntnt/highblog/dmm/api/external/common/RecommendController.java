@@ -1,4 +1,4 @@
-package com.ntnt.highblog.dmm.api.external.user;
+package com.ntnt.highblog.dmm.api.external.common;
 
 import com.ntnt.highblog.dmm.bloc.PostListBloc;
 import com.ntnt.highblog.dmm.helper.PaginationHelper;
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/v1/user/recommendation")
+@RequestMapping("/api/v1/recommendation")
 public class RecommendController {
 
     private final PostListBloc postListBloc;
@@ -26,6 +26,15 @@ public class RecommendController {
     @GetMapping("/posts")
     public ResponseEntity<BasePaginationRes> fetchListRecommendedPosts(BasePaginationReq basePaginationReq) {
         Page<Post> posts = postListBloc.fetchRecommendedPosts(basePaginationReq);
+
+        return ResponseEntity.ok(PaginationHelper.buildBasePaginationRes(
+            posts.map(PostMapper.INSTANCE::toPostRes)
+        ));
+    }
+
+    @GetMapping("/newsfeed")
+    public ResponseEntity<BasePaginationRes> fetchForNewsfeed(BasePaginationReq basePaginationReq) {
+        Page<Post> posts = postListBloc.fetchNewsfeed(basePaginationReq);
 
         return ResponseEntity.ok(PaginationHelper.buildBasePaginationRes(
             posts.map(PostMapper.INSTANCE::toPostRes)

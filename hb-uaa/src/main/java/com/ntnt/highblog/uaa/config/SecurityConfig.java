@@ -29,7 +29,8 @@ public class SecurityConfig {
         throws Exception {
         http
             .authorizeRequests(authorizeRequests ->
-                                   authorizeRequests.anyRequest().authenticated()
+                                    authorizeRequests.antMatchers("/api/v1/register/**").permitAll()
+                                                     .anyRequest().authenticated()
             )
             .logout()
             .logoutSuccessHandler(new CustomLogoutSuccessHandler())
