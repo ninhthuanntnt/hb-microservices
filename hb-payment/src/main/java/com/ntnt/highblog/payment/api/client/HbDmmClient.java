@@ -1,7 +1,6 @@
 package com.ntnt.highblog.payment.api.client;
 
 import com.ntnt.highblog.payment.model.dto.response.UserDetailRes;
-import com.ntnt.highblog.payment.model.dto.response.UserRes;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
