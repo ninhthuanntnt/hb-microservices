@@ -30,4 +30,7 @@ public class UserNode {
 
     @Relationship(type = "READ", direction = Relationship.Direction.OUTGOING)
     private List<PostNode> readPostNodes;
+
+    @Relationship(type = "FOLLOWS", direction = Relationship.Direction.OUTGOING)
+    private List<UserNode> followedUser;
 }

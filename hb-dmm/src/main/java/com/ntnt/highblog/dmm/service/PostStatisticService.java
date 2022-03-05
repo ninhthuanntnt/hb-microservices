@@ -47,7 +47,7 @@ public class PostStatisticService {
     }
 
     @Transactional
-    public void saveNumberOfVotes(final Long postId, final VoteType currentVoteType, final VoteType newVoteType) {
+    public PostStatistic saveNumberOfVotes(final Long postId, final VoteType currentVoteType, final VoteType newVoteType) {
         log.info("Save numberOfVote for postId #{} by previousVoteType #{} and newVoteType #{}",
                  postId,
                  currentVoteType,
@@ -56,51 +56,51 @@ public class PostStatisticService {
         PostStatistic postStatistic = repository.findByPostId(postId)
                                                 .orElseThrow(() -> new ObjectNotFoundException("postStatistic"));
         postStatistic.updateNumberOfVotes(currentVoteType, newVoteType);
-        repository.save(postStatistic);
+        return repository.save(postStatistic);
     }
 
     @Transactional
-    public void increaseNumberOfFavorite(final Long postId) {
+    public PostStatistic increaseNumberOfFavorite(final Long postId) {
         log.info("Increase numberOfFavorites");
         PostStatistic postStatistic = repository.findByPostId(postId)
                                                 .orElseThrow(()->new ObjectNotFoundException("postStatistic"));
 
         postStatistic.setNumberOfFavorites(postStatistic.getNumberOfFavorites() + 1);
 
-        repository.save(postStatistic);
+        return repository.save(postStatistic);
     }
 
     @Transactional
-    public void decreaseNumberOfFavorite(final Long postId) {
+    public PostStatistic decreaseNumberOfFavorite(final Long postId) {
         log.info("Decrease numberOfFavorites");
         PostStatistic postStatistic = repository.findByPostId(postId)
                                                 .orElseThrow(()->new ObjectNotFoundException("postStatistic"));
 
         postStatistic.setNumberOfFavorites(postStatistic.getNumberOfFavorites() - 1);
 
-        repository.save(postStatistic);
+        return repository.save(postStatistic);
     }
 
     @Transactional
-    public void increaseNumberOfComments(final Long postId) {
+    public PostStatistic increaseNumberOfComments(final Long postId) {
         log.info("Increase numberOfComments");
         PostStatistic postStatistic = repository.findByPostId(postId)
                                                 .orElseThrow(()->new ObjectNotFoundException("postStatistic"));
 
         postStatistic.setNumberOfComments(postStatistic.getNumberOfComments() + 1);
 
-        repository.save(postStatistic);
+        return repository.save(postStatistic);
     }
 
     @Transactional
-    public void decreaseNumberOfComments(final Long postId) {
+    public PostStatistic decreaseNumberOfComments(final Long postId) {
         log.info("Decrease numberOfFavorites");
         PostStatistic postStatistic = repository.findByPostId(postId)
                                                 .orElseThrow(()->new ObjectNotFoundException("postStatistic"));
 
         postStatistic.setNumberOfComments(postStatistic.getNumberOfComments() - 1);
 
-        repository.save(postStatistic);
+        return repository.save(postStatistic);
     }
 
     private void validatePostBeforeSaveNew(final PostStatistic postStatistic) {

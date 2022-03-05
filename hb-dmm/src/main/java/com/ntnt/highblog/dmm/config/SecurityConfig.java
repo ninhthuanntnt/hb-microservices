@@ -35,12 +35,11 @@ public class SecurityConfig
     protected void configure(HttpSecurity http)
         throws Exception {
         http
+            .csrf().disable()
             .authorizeRequests(authorize -> {
-                authorize.antMatchers("/actuator/health",
-                                      "/api/v1/profiles",
-                                      "/api/v1/**").permitAll();
-                authorize.antMatchers("/api/v1/user/**")
-                         .authenticated();
+                authorize
+                         .antMatchers("/api/v1/user/**").authenticated()
+                         .anyRequest().permitAll();
             })
             .oauth2ResourceServer(httpSecurityOAuth2ResourceServerConfigurer -> {
                 httpSecurityOAuth2ResourceServerConfigurer.jwt();

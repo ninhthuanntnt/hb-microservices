@@ -19,6 +19,11 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     Optional<User> findByNickName(String nickName);
 
+//    @Query("SELECT u FROM User u"
+//        + " JOIN Account acc ON acc.userId = u.id "
+//        + "                  AND acc.id = :accountId")
+//    Optional<User> getByAccountId(@Param("accountId") Long accountId);
+
     boolean existsByNickName(String nickName);
 
     @Query("SELECT DISTINCT u FROM  User u"

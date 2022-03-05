@@ -29,25 +29,28 @@ public class PostListController {
         Page<Post> posts = postListBloc.fetchPosts(categoryId, req);
 
         return ResponseEntity.ok(PaginationHelper.buildBasePaginationRes(
-                posts.map(PostMapper.INSTANCE::toPostRes)
+            posts.map(PostMapper.INSTANCE::toPostRes)
         ));
     }
 
     @GetMapping(params = "nickName")
-    public ResponseEntity<?> fetchListPost(@RequestParam final String nickName,final Long categoryId,
+    public ResponseEntity<?> fetchListPost(@RequestParam final String nickName, final Long categoryId,
                                            final BasePaginationReq req) {
 
-        Page<Post> posts = postListBloc.fetchPostsByNickName(nickName,categoryId, req);
+        Page<Post> posts = postListBloc.fetchPostsByNickName(nickName, categoryId, req);
 
         return ResponseEntity.ok(PaginationHelper.buildBasePaginationRes(
-                posts.map(PostMapper.INSTANCE::toPostRes)
+            posts.map(PostMapper.INSTANCE::toPostRes)
         ));
     }
+
     @GetMapping(params = "tagId")
-    public ResponseEntity<?> fetchListPostsByTagId(@RequestParam final Long tagId,final long categoryId, final  BasePaginationReq req){
-        Page<Post> posts = postListBloc.fetchPostsByTagId(tagId,categoryId,req);
+    public ResponseEntity<?> fetchListPostsByTagId(@RequestParam final Long tagId,
+                                                   final long categoryId,
+                                                   final BasePaginationReq req) {
+        Page<Post> posts = postListBloc.fetchPostsByTagId(tagId, categoryId, req);
         return ResponseEntity.ok(PaginationHelper.buildBasePaginationRes(
-                posts.map(PostMapper.INSTANCE::toPostRes)));
+            posts.map(PostMapper.INSTANCE::toPostRes)));
     }
 
     @GetMapping("/search")
@@ -55,7 +58,7 @@ public class PostListController {
         Page<Post> posts = postListBloc.searchPosts(req);
 
         return ResponseEntity.ok(PaginationHelper.buildBasePaginationRes(
-                posts.map(PostMapper.INSTANCE::toPostRes)
+            posts.map(PostMapper.INSTANCE::toPostRes)
         ));
     }
 

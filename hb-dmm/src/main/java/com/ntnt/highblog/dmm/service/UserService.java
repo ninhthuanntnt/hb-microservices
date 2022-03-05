@@ -4,6 +4,7 @@ import com.ntnt.highblog.dmm.error.exception.ObjectNotFoundException;
 import com.ntnt.highblog.dmm.error.exception.ValidatorException;
 import com.ntnt.highblog.dmm.helper.SecurityHelper;
 import com.ntnt.highblog.dmm.model.entity.User;
+import com.ntnt.highblog.dmm.model.request.RegisterReq;
 import com.ntnt.highblog.dmm.repository.UserRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.ObjectUtils;
@@ -50,6 +51,14 @@ public class UserService {
         return userRepository.findByNickName(nickName)
                              .orElseThrow(() -> new ObjectNotFoundException("user"));
     }
+//
+//    @Transactional(readOnly = true)
+//    public User getByAccountId(final Long accountId){
+//        log.info("Get user by accountId #{}", accountId);
+//
+//        return userRepository.getByAccountId(accountId)
+//                             .orElseThrow(()->new ObjectNotFoundException("user"));
+//    }
 
     @Transactional
     public void saveNew(final User user) {
@@ -73,6 +82,23 @@ public class UserService {
         validateUserBeforeSave(user);
 
         userRepository.save(user);
+    }
+
+    @Transactional
+    public User create(final RegisterReq registerReq) {
+        log.info("Create user with registerReq #{}", registerReq);
+
+        if(userRepository.existsByNickName(registerReq.getNickName())) {
+            throw new ValidatorException("Already exist", "nickname");
+        }
+
+        User user = User.builder()
+                        .nickName(registerReq.getNickName())
+                        .firstName(registerReq.getFirstName()).lastName(registerReq.getLastName())
+                        .genderType(registerReq.getGenderType())
+                        .build();
+
+        return userRepository.save(user);
     }
 
     @Transactional(readOnly = true)

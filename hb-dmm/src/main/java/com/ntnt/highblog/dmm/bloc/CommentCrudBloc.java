@@ -3,10 +3,12 @@ package com.ntnt.highblog.dmm.bloc;
 import com.ntnt.highblog.dmm.helper.SecurityHelper;
 import com.ntnt.highblog.dmm.mapper.CommentMapper;
 import com.ntnt.highblog.dmm.model.entity.Comment;
+import com.ntnt.highblog.dmm.model.entity.PostStatistic;
 import com.ntnt.highblog.dmm.model.request.CommentCreateReq;
 import com.ntnt.highblog.dmm.model.request.CommentUpdateReq;
 import com.ntnt.highblog.dmm.service.CommentService;
 import com.ntnt.highblog.dmm.service.PostStatisticService;
+import com.ntnt.highblog.dmm.service.neo4j.PostNodeService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,14 +19,17 @@ public class CommentCrudBloc {
 
     private final CommentService commentService;
     private final PostStatisticService postStatisticService;
+    private final PostNodeService postNodeService;
     //TODO: Use notification client
 //    private final NotificationBloc notificationBloc;
 
     public CommentCrudBloc(final CommentService commentService,
-                           final PostStatisticService postStatisticService) {
+                           final PostStatisticService postStatisticService,
+                           final PostNodeService postNodeService) {
         this.commentService = commentService;
         this.postStatisticService = postStatisticService;
 //        this.notificationBloc = notificationBloc;
+        this.postNodeService = postNodeService;
     }
 
     @Transactional
@@ -36,8 +41,10 @@ public class CommentCrudBloc {
         comment.setUserId(SecurityHelper.getCurrentUserId());
 
         commentService.saveNew(comment);
-        postStatisticService.increaseNumberOfComments(commentCreateReq.getPostId());
+        PostStatistic postStatistic = postStatisticService.increaseNumberOfComments(commentCreateReq.getPostId());
 
+        postNodeService.updateNumberOfComments(postStatistic.getPostId(),
+                                               postStatistic.getNumberOfComments());
         return comment.getId();
     }
 
@@ -62,6 +69,9 @@ public class CommentCrudBloc {
         Long postId = commentService.getByIdAndUserId(id, userId).getPostId();
 
         commentService.delete(id, userId);
-        postStatisticService.decreaseNumberOfComments(postId);
+        PostStatistic postStatistic = postStatisticService.decreaseNumberOfComments(postId);
+
+        postNodeService.updateNumberOfComments(postStatistic.getPostId(),
+                                               postStatistic.getNumberOfComments());
     }
 }

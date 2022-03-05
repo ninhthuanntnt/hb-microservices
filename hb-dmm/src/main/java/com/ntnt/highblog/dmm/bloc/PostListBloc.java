@@ -22,6 +22,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Slf4j
@@ -51,7 +52,7 @@ public class PostListBloc {
         // TODO: add binding data to convert string of default sort to an object
         PageRequest pageRequest = PaginationHelper.generatePageRequestWithoutSort(req);
 
-        Page<Post> posts = postService.fetchPostsWithPageRequest(categoryId, pageRequest);
+        Page<Post> posts = postService.fetchTrendingPostsWithPageRequest(categoryId, pageRequest);
 
         // Should use include to make better performance
         includePostTagsToPosts(posts);
@@ -61,20 +62,57 @@ public class PostListBloc {
     }
 
     public Page<Post> fetchRecommendedPosts(BasePaginationReq basePaginationReq) {
-        Long currentUserId = SecurityHelper.getCurrentUserId();
-        log.info("Fetch recommended post for userId #{}", currentUserId);
+        Optional<Long> currentUserId = SecurityHelper.getNullableCurrentUserId();
+        log.info("Fetch recommended post for userId #{}", currentUserId.orElse(null));
 
         PageRequest pageRequest = PaginationHelper.generatePageRequest(basePaginationReq);
-        Page<PostNode> postNodePage = postNodeService.fetchRecommendedPostByUserId(currentUserId, pageRequest);
-        return getPostsFromPostNodes(postNodePage);
+        if (currentUserId.isPresent()) {
+            Page<PostNode> postNodePage = postNodeService.fetchRecommendedPostByUserId(currentUserId.get(),
+                                                                                       pageRequest);
+            return getPostsFromPostNodes(postNodePage);
+        } else {
+            Page<Post> posts =
+                postService.fetchPosts(PaginationHelper.generatePageRequestWithDefaultSort(basePaginationReq, "-id"));
+
+            includeExtraInfo(posts);
+            return posts;
+        }
+    }
+
+    public Page<Post> fetchNewsfeed(BasePaginationReq basePaginationReq) {
+        Optional<Long> currentUserId = SecurityHelper.getNullableCurrentUserId();
+        log.info("Fetch newsfeed post for userId #{}", currentUserId.orElse(null));
+
+        PageRequest pageRequest = PaginationHelper.generatePageRequest(basePaginationReq);
+
+        if (currentUserId.isPresent()) {
+            Page<PostNode> postNodePage = postNodeService.fetchNewsfeedByUserId(currentUserId.get(), pageRequest);
+            return getPostsFromPostNodes(postNodePage);
+        } else {
+            Page<Post> posts =
+                postService.fetchPosts(PaginationHelper.generatePageRequestWithDefaultSort(basePaginationReq, "-id"));
+
+            includeExtraInfo(posts);
+            return posts;
+        }
     }
 
     public Page<Post> fetchRecommendedPostsById(Long id, BasePaginationReq basePaginationReq) {
-        Long currentUserId = SecurityHelper.getCurrentUserId();
-        log.info("Fetch recommended posts by id #{} for userId #{}", id, currentUserId);
+        Optional<Long> currentUserId = SecurityHelper.getNullableCurrentUserId();
+        log.info("Fetch recommended posts by id #{} for userId #{}", id, currentUserId.orElse(null));
 
         PageRequest pageRequest = PaginationHelper.generatePageRequest(basePaginationReq);
-        Page<PostNode> postNodePage = postNodeService.fetchRecommendedPostByIdAndUserId(id, currentUserId, pageRequest);
+
+        Page<PostNode> postNodePage;
+        if (currentUserId.isPresent()) {
+            postNodePage = postNodeService.fetchRecommendedPostByIdAndUserId(id,
+                                                                             currentUserId.get(),
+                                                                             pageRequest);
+        } else {
+            postNodePage = postNodeService.fetchRecommendedPostById(id,
+                                                                    pageRequest);
+
+        }
         return getPostsFromPostNodes(postNodePage);
     }
 
@@ -106,6 +144,7 @@ public class PostListBloc {
         return posts;
     }
 
+    @Transactional(readOnly = true)
     public Page<Post> fetchSubscriptionPostsForCurrentUser(Long categoryId, final BasePaginationReq req) {
         log.info("Fetch list subscription posts for current user");
 
@@ -114,8 +153,7 @@ public class PostListBloc {
         Page<Post> posts = postService
             .fetchPostsByFollowerIdWithPageRequest(SecurityHelper.getCurrentUserId(), categoryId, pageRequest);
 
-        includePostTagsToPosts(posts);
-        includeUserToPosts(posts);
+        includeExtraInfo(posts);
 
         return posts;
     }
@@ -141,9 +179,7 @@ public class PostListBloc {
             }
         }
 
-        includePostTagsToPosts(posts);
-        includePostStatisticToPosts(posts);
-        includeUserToPosts(posts);
+        includeExtraInfo(posts);
 
         return posts;
     }
@@ -186,10 +222,14 @@ public class PostListBloc {
 
         Page<Post> postPage = postNodePage.map(postNode -> postIdPostMap.get(postNode.getId()));
 
+        includeExtraInfo(postPage);
+
+        return postPage;
+    }
+
+    private void includeExtraInfo(final Page<Post> postPage) {
         includePostTagsToPosts(postPage);
         includeUserToPosts(postPage);
         includePostStatisticToPosts(postPage);
-
-        return postPage;
     }
 }

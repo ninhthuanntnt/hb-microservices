@@ -57,10 +57,10 @@ public class PostService {
     }
 
     @Transactional(readOnly = true)
-    public Page<Post> fetchPostsWithPageRequest(Long categoryId, final PageRequest pageRequest) {
+    public Page<Post> fetchTrendingPostsWithPageRequest(Long categoryId, final PageRequest pageRequest) {
         log.info("Fetch posts with pageRequest");
 
-        return repository.fetchByCategoryId(categoryId, pageRequest);
+        return repository.fetchTrendingByCategoryId(categoryId, pageRequest);
     }
 
     @Transactional(readOnly = true)
@@ -137,14 +137,14 @@ public class PostService {
     private void validatePostBeforeSaveNew(final Post post) {
         if (ObjectUtils.isNotEmpty(post.getId()))
             throw new ValidatorException("Invalid post id", "id");
-        if (post.getUserId() != SecurityHelper.getCurrentUserId())
+        if (!post.getUserId().equals(SecurityHelper.getCurrentUserId()))
             throw new ValidatorException("Invalid user id", "userId");
     }
 
     private void validatePostBeforeSave(final Post post) {
         if (ObjectUtils.isEmpty(post.getId()))
             throw new ValidatorException("Invalid post id", "id");
-        if (post.getUserId() != SecurityHelper.getCurrentUserId())
+        if (!post.getUserId().equals(SecurityHelper.getCurrentUserId()))
             throw new ValidatorException("Invalid user id", "userId");
     }
 
@@ -152,6 +152,11 @@ public class PostService {
         log.info("Fetch posts by tagId with page request #{}", pageRequest);
 
         return repository.fetchByTagIdAndCategoryId(tagId, categoryId, pageRequest);
+    }
+
+    @Transactional(readOnly = true)
+    public Page<Post> fetchPosts(final PageRequest pageRequest) {
+        return repository.findAll(pageRequest);
     }
 
     @Transactional(readOnly = true)

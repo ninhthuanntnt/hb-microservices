@@ -32,6 +32,7 @@ import com.ntnt.highblog.dmm.service.neo4j.UserNodeService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.ObjectUtils;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -158,11 +159,24 @@ public class PostCrudBloc {
         Post newPost = PostMapper.INSTANCE.toPost(postUpdateReq, dbPost);
         postService.save(newPost);
 
-        List<PostTag> postTags = (List<PostTag>) CollectionUtils.emptyIfNull(newPost.getPostTags());
+        List<Tag> tags = tagService.fetchExistAndNotByListTagNames(postUpdateReq.getTagCreateReqs()
+                                                                                .stream()
+                                                                                .map(TagCreateReq::getName)
+                                                                                .collect(Collectors.toList()));
 
-        postTags.forEach(postTag -> postTag.setPostId(id));
+        tagService.saveAll(tags);
+
+        List<PostTag> postTags = tags.stream()
+                                     .map(tag -> PostTag.builder()
+                                                        .postId(id)
+                                                        .tagId(tag.getId())
+                                                        .build())
+                                     .collect(Collectors.toList());
 
         postTagService.deleteOldAndSaveNew(newPost.getId(), postTags);
+        syncDataToRecommendSystem(userService.getById(SecurityHelper.getCurrentUserId()), newPost, tags);
+
+        postTags.forEach(postTag -> postTag.setPostId(id));
     }
 
     @Transactional
@@ -202,11 +216,18 @@ public class PostCrudBloc {
         List<TagNode> tagNodes = tags.stream()
                                      .map(tag -> new TagNode(tag.getId(), tag.getName()))
                                      .collect(Collectors.toList());
-        PostNode postNode = new PostNode(post.getId(), post.getTitle(), tagNodes);
+        PostNode postNode = new PostNode(post.getId(),
+                                         user.getId(),
+                                         post.getTitle(),
+                                         0L,
+                                         0L,
+                                         0L,
+                                         tagNodes);
 
         UserNode userNode = new UserNode(user.getId(),
                                          user.getNickName(),
                                          Collections.singletonList(postNode),
+                                         Collections.emptyList(),
                                          Collections.emptyList());
 
         userNodeService.saveAll(Collections.singletonList(userNode));
@@ -217,17 +238,21 @@ public class PostCrudBloc {
                                                     .stream()
                                                     .map(Subscription::getFollowerId)
                                                     .collect(Collectors.toList());
-        hbNotificationClient.createNotification(
-            NotificationCreateReq.builder()
-                                 .content(post.getTitle())
-                                 .sourceId(post.getId())
-                                 .notificationType(NotificationType.POST)
-                                 .receiverIds(receiverIds)
-                                 .notificationSenderReq(NotificationSenderReq
-                                                            .builder()
-                                                            .nickName(notificationSender.getNickName())
-                                                            .imagePath(notificationSender.getImagePath())
-                                                            .build())
-                                 .build());
+        try {
+            hbNotificationClient.createNotification(
+                NotificationCreateReq.builder()
+                                     .content(post.getTitle())
+                                     .sourceId(post.getId())
+                                     .notificationType(NotificationType.POST)
+                                     .receiverIds(receiverIds)
+                                     .notificationSenderReq(NotificationSenderReq
+                                                                .builder()
+                                                                .nickName(notificationSender.getNickName())
+                                                                .imagePath(notificationSender.getImagePath())
+                                                                .build())
+                                     .build());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -6,7 +6,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -19,6 +21,15 @@ public class PostNodeService {
         this.postNodeRepository = postNodeRepository;
     }
 
+    public Page<PostNode> fetchNewsfeedByUserId(Long userId, PageRequest pageRequest) {
+        log.info("Fetch recommended posts by userId #{}", userId);
+        return new PageImpl<>(postNodeRepository.fetchForNewsfeed(userId,
+                                                                  pageRequest.getOffset(),
+                                                                  pageRequest.getPageSize()),
+                              pageRequest,
+                              postNodeRepository.countForNewsfeed(userId));
+    }
+
     public Page<PostNode> fetchRecommendedPostByUserId(Long userId, PageRequest pageRequest) {
         log.info("Fetch recommended posts by userId #{}", userId);
         return new PageImpl<>(postNodeRepository.fetchRecommendPostsByUserId(userId,
@@ -26,6 +37,15 @@ public class PostNodeService {
                                                                              pageRequest.getPageSize()),
                               pageRequest,
                               postNodeRepository.countRecommendPostsByUserId(userId));
+    }
+
+    public Page<PostNode> fetchRecommendedPostById(Long id, PageRequest pageRequest) {
+        log.info("Fetch recommended posts by postId #{}", id);
+        return new PageImpl<>(postNodeRepository.fetchRecommendPostsById(id,
+                                                                         pageRequest.getOffset(),
+                                                                         pageRequest.getPageSize()),
+                              pageRequest,
+                              postNodeRepository.countRecommendPostsById(id));
     }
 
     public Page<PostNode> fetchRecommendedPostByIdAndUserId(Long id, Long userId, PageRequest pageRequest) {
@@ -38,6 +58,40 @@ public class PostNodeService {
                               postNodeRepository.countRecommendPostsByIdAndUserId(id, userId));
     }
 
+    @Async
+    public void updateNumberOfComments(Long id, Long numberOfComment) {
+        log.info("Update number of comments #{} by postId #{}", numberOfComment, id);
+
+        postNodeRepository.findById(id)
+                          .ifPresent(postNode -> {
+                              postNode.setNumberOfComments(numberOfComment);
+                              postNodeRepository.save(postNode);
+                          });
+    }
+
+    @Async
+    public void updateNumberOfFavorites(Long id, Long numberOfFavorites) {
+        log.info("Update number of comments #{} by postId #{}", numberOfFavorites, id);
+
+        postNodeRepository.findById(id)
+                          .ifPresent(postNode -> {
+                              postNode.setNumberOfFavorites(numberOfFavorites);
+                              postNodeRepository.save(postNode);
+                          });
+    }
+
+    @Async
+    public void updateNumberOfVotes(Long id, Long numberOfVotes) {
+        log.info("Update number of comments #{} by postId #{}", numberOfVotes, id);
+
+        postNodeRepository.findById(id)
+                          .ifPresent(postNode -> {
+                              postNode.setNumberOfVotes(numberOfVotes);
+                              postNodeRepository.save(postNode);
+                          });
+    }
+
+    @Transactional("neo4jTransactionManager")
     public void saveAll(List<PostNode> postNodes) {
         log.info("Save all postNodes #{}", postNodes);
 

@@ -5,12 +5,14 @@ import com.ntnt.highblog.dmm.enums.VoteType;
 import com.ntnt.highblog.dmm.error.exception.ValidatorException;
 import com.ntnt.highblog.dmm.helper.SecurityHelper;
 import com.ntnt.highblog.dmm.mapper.PostVoteMapper;
+import com.ntnt.highblog.dmm.model.entity.PostStatistic;
 import com.ntnt.highblog.dmm.model.entity.PostVote;
 import com.ntnt.highblog.dmm.model.request.PostVoteCreateReq;
 import com.ntnt.highblog.dmm.model.request.PostVoteDeleteReq;
 import com.ntnt.highblog.dmm.model.request.PostVoteUpdateReq;
 import com.ntnt.highblog.dmm.service.PostStatisticService;
 import com.ntnt.highblog.dmm.service.PostVoteService;
+import com.ntnt.highblog.dmm.service.neo4j.PostNodeService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.ObjectUtils;
 import org.springframework.stereotype.Component;
@@ -21,11 +23,14 @@ import org.springframework.transaction.annotation.Transactional;
 public class PostVoteCrudBloc {
     private final PostVoteService postVoteService;
     private final PostStatisticService postStatisticService;
+    private final PostNodeService postNodeService;
 
     public PostVoteCrudBloc(final PostVoteService postVoteService,
-                            final PostStatisticService postStatisticService) {
+                            final PostStatisticService postStatisticService,
+                            final PostNodeService postNodeService) {
         this.postVoteService = postVoteService;
         this.postStatisticService = postStatisticService;
+        this.postNodeService = postNodeService;
     }
 
     @Transactional
@@ -40,10 +45,12 @@ public class PostVoteCrudBloc {
         postVote.setUserId(userId);
         postVoteService.saveNew(postVote);
 
+        PostStatistic postStatistic = postStatisticService.saveNumberOfVotes(postVoteCreateReq.getPostId(),
+                                                                             null,
+                                                                             postVoteCreateReq.getVoteType());
 
-        postStatisticService.saveNumberOfVotes(postVoteCreateReq.getPostId(),
-                                               null,
-                                               postVoteCreateReq.getVoteType());
+        postNodeService.updateNumberOfVotes(postStatistic.getPostId(),
+                                            postStatistic.getNumberOfVotes());
     }
 
     @Transactional
@@ -59,9 +66,12 @@ public class PostVoteCrudBloc {
         PostVote newPostVote = PostVoteMapper.INSTANCE.toPostVote(postVoteUpdateReq, currentPostVote);
         postVoteService.save(newPostVote);
 
-        postStatisticService.saveNumberOfVotes(postVoteUpdateReq.getPostId(),
-                                               currentVoteType,
-                                               newPostVote.getVoteType());
+        PostStatistic postStatistic = postStatisticService.saveNumberOfVotes(postVoteUpdateReq.getPostId(),
+                                                                             currentVoteType,
+                                                                             newPostVote.getVoteType());
+
+        postNodeService.updateNumberOfVotes(postStatistic.getPostId(),
+                                            postStatistic.getNumberOfVotes());
     }
 
     @Transactional
@@ -73,9 +83,12 @@ public class PostVoteCrudBloc {
 
         postVoteService.delete(currentPostVote);
 
-        postStatisticService.saveNumberOfVotes(postVoteDeleteReq.getPostId(),
-                                               currentPostVote.getVoteType(),
-                                               null);
+        PostStatistic postStatistic = postStatisticService.saveNumberOfVotes(postVoteDeleteReq.getPostId(),
+                                                                             currentPostVote.getVoteType(),
+                                                                             null);
+
+        postNodeService.updateNumberOfVotes(postStatistic.getPostId(),
+                                            postStatistic.getNumberOfVotes());
 
     }
 

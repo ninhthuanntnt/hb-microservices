@@ -22,8 +22,20 @@ public class PostNode {
     @Id
     private Long id;
 
+    @Property("userId")
+    private Long userId;
+
     @Property("title")
     private String title;
+
+    @Property("numberOfComments")
+    private Long numberOfComments;
+
+    @Property("numberOfFavorites")
+    private Long numberOfFavorites;
+
+    @Property("numberOfVotes")
+    private Long numberOfVotes;
 
     @Relationship(type = "HAS_TAG", direction = Relationship.Direction.OUTGOING)
     private List<TagNode> tagNodes;

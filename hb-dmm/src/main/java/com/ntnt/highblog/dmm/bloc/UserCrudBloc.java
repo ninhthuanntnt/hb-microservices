@@ -5,18 +5,20 @@ import com.ntnt.highblog.dmm.helper.SecurityHelper;
 import com.ntnt.highblog.dmm.mapper.UserMapper;
 import com.ntnt.highblog.dmm.model.entity.Subscription;
 import com.ntnt.highblog.dmm.model.entity.User;
+import com.ntnt.highblog.dmm.model.entity.neo4j.UserNode;
+import com.ntnt.highblog.dmm.model.request.RegisterReq;
 import com.ntnt.highblog.dmm.model.request.UserUpdateReq;
 import com.ntnt.highblog.dmm.service.FileService;
 import com.ntnt.highblog.dmm.service.SubscriptionService;
 import com.ntnt.highblog.dmm.service.UserService;
+import com.ntnt.highblog.dmm.service.neo4j.UserNodeService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.ObjectUtils;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.util.Collection;
-import java.util.List;
+import java.util.Collections;
 
 
 @Slf4j
@@ -25,13 +27,16 @@ public class UserCrudBloc {
     private final UserService userService;
     private final FileService fileService;
     private final SubscriptionService subscriptionService;
+    private final UserNodeService userNodeService;
 
     public UserCrudBloc(final UserService userService,
                         final FileService fileService,
-                        final SubscriptionService subscriptionService) {
+                        final SubscriptionService subscriptionService,
+                        final UserNodeService userNodeService) {
         this.userService = userService;
         this.fileService = fileService;
         this.subscriptionService = subscriptionService;
+        this.userNodeService = userNodeService;
     }
 
     @Transactional(readOnly = true)
@@ -83,6 +88,20 @@ public class UserCrudBloc {
         }
 
         return path;
+    }
+
+    public User create(final RegisterReq registerReq) {
+        log.info("Create user with data #{}", registerReq);
+
+        User user = userService.create(registerReq);
+
+        userNodeService.saveAll(Collections.singletonList(new UserNode(user.getId(),
+                                                                       user.getNickName(),
+                                                                       Collections.emptyList(),
+                                                                       Collections.emptyList(),
+                                                                       Collections.emptyList())));
+
+        return user;
     }
 
     @Transactional
