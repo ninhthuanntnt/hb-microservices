@@ -2,6 +2,7 @@ const Path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const {CleanWebpackPlugin} = require("clean-webpack-plugin");
+const Dotenv = require('dotenv-webpack');
 let mode = "development";
 let target = "web";
 
@@ -72,6 +73,9 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: "./src/index.html",
         }),
+        new Dotenv({
+            path: './config.env'
+        })
     ],
     devtool: "source-map",
     devServer: {
