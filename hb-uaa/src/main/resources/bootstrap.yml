@@ -4,5 +4,5 @@ spring:
   cloud:
     consul:
       enabled: true
-      host: localhost
+      host: ${HB_CONSUL_SERVER:localhost}
       port: 8500
