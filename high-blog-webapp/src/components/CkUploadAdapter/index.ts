@@ -25,6 +25,7 @@ export default class CkUploadAdapter {
         xhr.responseType = 'json';
         xhr.withCredentials = true;
         xhr.setRequestHeader("Accept", "application/json");
+        xhr.setRequestHeader("Authorization", `Bearer ${localStorage.getItem("accessToken")}`);
     }
     _initListeners( resolve, reject, file ) {
         const xhr = this.xhr;
