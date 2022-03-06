@@ -88,7 +88,7 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          jwk-set-uri: http://127.0.0.1:8280/oauth2/jwks
+          jwk-set-uri: ${HB_UAA_URL:http://127.0.0.1:8280}/oauth2/jwks
       client:
         registration:
           hb-gateway:
@@ -96,16 +96,16 @@ spring:
             client-id: hb_client_id_1
             client-secret: hb_client_secret_1
             authorization-grant-type: authorization_code
-            redirect-uri: http://127.0.0.1:8080/login/oauth2/code/hb-gateway
+            redirect-uri: ${HB_URL:http://127.0.0.1:8080}/login/oauth2/code/hb-gateway
             scope: openid
             client-name: hb-gateway
         provider:
           hb-uaa:
-            authorization-uri: http://127.0.0.1:8280/oauth2/authorize
-            issuer-uri: http://127.0.0.1:8280
-            token-uri: http://127.0.0.1:8280/oauth2/token
-            jwk-set-uri: http://127.0.0.1:8280/oauth2/jwks
-            user-info-uri: http://127.0.0.1:8280/api/v1/profiles
+            authorization-uri: ${HB_UAA_URL:http://127.0.0.1:8280}/oauth2/authorize
+            issuer-uri: ${HB_UAA_URL:http://127.0.0.1:8280}
+            token-uri: ${HB_UAA_URL:http://127.0.0.1:8280}/oauth2/token
+            jwk-set-uri: ${HB_UAA_URL:http://127.0.0.1:8280}/oauth2/jwks
+            user-info-uri: ${HB_UAA_URL:http://127.0.0.1:8280}/api/v1/profiles
             user-name-attribute: sub
 application:
   uri:
