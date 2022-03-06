@@ -121,7 +121,7 @@ public class PostListBloc {
         log.info("Fetch list posts by nickName #{} with req #{}", nickName, req);
         PageRequest pageRequest = PaginationHelper.generatePageRequestWithDefaultSort(req,
                                                                                       "-ps.id");
-        Long currentUserId = SecurityHelper.getCurrentUserId();
+        Long currentUserId = SecurityHelper.getNullableCurrentUserId().orElse(null);
         Page<Post> posts = null;
         if (currentUserId == userService.getByNickName(nickName).getId()) {
             posts = postService.fetchPostsOfCurrentUser(nickName, categoryId, pageRequest);
