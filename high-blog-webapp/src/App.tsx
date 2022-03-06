@@ -29,7 +29,7 @@ const App: React.FC = () => {
             <Header/>
             {
                 isLoggedIn &&
-                <WebsocketConfig socketUrl={"http://localhost:8083" + "/notification"}
+                <WebsocketConfig socketUrl={process.env.NOTIFICATION_SERVER_URL + "/notification"}
                                  subscribedUrl={`/user/exchange/amq.direct/notification`}
                                  markSentUrl={'/app/notification.setSent'}/>
             }
