@@ -19,8 +19,8 @@ public final class CookieHelper {
     public static ResponseCookie getCookie(String name, String value, String path) {
         return ResponseCookie.from(name, value)
                              .path(path)
-                             .secure(true)
-                             .sameSite("none")
+                             .httpOnly(true)
+                             .domain("192.168.1.105")
                              .maxAge(Duration.ofSeconds(3600*24*7))
                              .build();
     }
@@ -28,8 +28,8 @@ public final class CookieHelper {
     public static ResponseCookie getClearedCookie(String name, String path) {
         return ResponseCookie.from(name, "")
                              .path(path)
-                             .secure(true)
-                             .sameSite("none")
+                             .domain("192.168.1.105")
+                             .httpOnly(true)
                              .maxAge(Duration.ofSeconds(0))
                              .build();
     }

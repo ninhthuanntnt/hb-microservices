@@ -1,4 +1,4 @@
-import axios, {AxiosError, AxiosResponse} from "axios";
+import axios, {AxiosError, AxiosRequestConfig, AxiosResponse} from "axios";
 import {BASE_URL} from "../const/constant";
 import authApi from "./authApi";
 import {useAppDispatch} from "../app/hooks";
@@ -13,19 +13,28 @@ const axiosClient = axios.create({
     },
     withCredentials: true
 });
+axiosClient.interceptors.request.use(function (request: AxiosRequestConfig) {
+    let accessToken: string | null = localStorage.getItem("accessToken");
+    if(accessToken && request.headers) {
+        request.headers.Authorization = `Bearer ${accessToken}`;
+    }
+
+    return request;
+});
 
 axiosClient.interceptors.response.use(function (response: AxiosResponse) {
-    if(response?.status === 302) {
+    if (response?.status === 302) {
         return null;
+    } else {
     }
     return response.data;
 
 }, function (error: AxiosError) {
     const config: any = error.response?.config;
     let statusCode = error.response?.status;
-    if (config.url.indexOf("refresh") > 0) {
+    if (config?.url.indexOf("refresh") > 0) {
         return Promise.reject(error);
-    } else if(statusCode == 401){
+    } else if (statusCode == 401) {
         console.log("Start refresh");
 
         authApi
@@ -39,10 +48,10 @@ axiosClient.interceptors.response.use(function (response: AxiosResponse) {
                 return;
             });
     }
-    if([401, 403].indexOf(error.response?.status ?? 0) >= 0) {
+    if ([401, 403].indexOf(error.response?.status ?? 0) >= 0) {
         NotificationUtils.showUnAuthError();
     } else {
-        NotificationUtils.showErrorFromResponse(error.response?.data);
+        NotificationUtils.showErrorFromResponse(error?.response?.data);
     }
     return Promise.reject(error);
 });

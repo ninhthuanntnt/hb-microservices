@@ -16,15 +16,18 @@ import org.springframework.security.oauth2.client.annotation.RegisteredOAuth2Aut
 import org.springframework.security.oauth2.client.registration.ReactiveClientRegistrationRepository;
 import org.springframework.security.oauth2.client.web.server.ServerOAuth2AuthorizedClientRepository;
 import org.springframework.security.oauth2.jwt.ReactiveJwtDecoder;
+import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ServerWebExchange;
 
+import java.util.HashMap;
 import java.util.Optional;
 
 @RestController
@@ -45,12 +48,17 @@ public class AuthController {
 
     @GetMapping("/refresh")
     public ResponseEntity<?> refreshAccessToken(@CookieValue(CookieHelper.ACCESS_TOKEN_COOKIE_KEY)
-                                                        String accessToken,
+                                                    String accessToken,
                                                 @CookieValue(CookieHelper.REFRESH_TOKEN_TO_REFRESH_COOKIE_KEY)
                                                     String refreshToken,
-                                                ServerWebExchange serverWebExchange) {
+                                                ServerWebExchange serverWebExchange,
+                                                @RequestHeader("accessToken") String accessTokenHeader,
+                                                @RequestHeader("refreshToken") String refreshTokenHeader) {
+
+        String finalAccessToken = ObjectUtils.isEmpty(accessToken) ? accessTokenHeader : accessToken;
+        String finalRefreshToken = ObjectUtils.isEmpty(refreshToken) ? accessTokenHeader : refreshToken;
         Optional<RefreshTokenGrantTypeRes> refreshTokenGrantTypeResOpt =
-            uaaClient.refreshAccessToken(accessToken, refreshToken);
+            uaaClient.refreshAccessToken(finalAccessToken, finalRefreshToken);
 
         refreshTokenGrantTypeResOpt.ifPresent(refreshTokenGrantTypeRes -> {
 
@@ -61,7 +69,16 @@ public class AuthController {
         });
 
         if (refreshTokenGrantTypeResOpt.isPresent()) {
-            return ResponseEntity.ok().build();
+            HashMap<String, String> body = new HashMap<>();
+            body.put("accessToken", serverWebExchange.getResponse()
+                                                     .getCookies()
+                                                     .get(CookieHelper.ACCESS_TOKEN_COOKIE_KEY).get(0).getValue());
+            body.put("refreshToken", serverWebExchange.getResponse()
+                                                      .getCookies()
+                                                      .get(CookieHelper.REFRESH_TOKEN_TO_REFRESH_COOKIE_KEY).get(0)
+                                                      .getValue());
+
+            return ResponseEntity.ok(body);
         }
 
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
@@ -78,15 +95,25 @@ public class AuthController {
         Optional<AuthorizationCodeGrantTypeRes> authorizationCodeGrantTypeResOpt =
             uaaClient.getToken(loginReq.getCode(), loginReq.getRedirectUri());
 
-        authorizationCodeGrantTypeResOpt.ifPresent(authorizationCodeGrantTypeRes ->  {
+        authorizationCodeGrantTypeResOpt.ifPresent(authorizationCodeGrantTypeRes -> {
             CookieHelper.setAccessTokenCookie(serverWebExchange.getResponse(),
                                               authorizationCodeGrantTypeRes.getAccessToken());
             CookieHelper.setRefreshTokenCookie(serverWebExchange.getResponse(),
                                                authorizationCodeGrantTypeRes.getRefreshToken());
         });
 
-        if(authorizationCodeGrantTypeResOpt.isPresent()) {
-            return ResponseEntity.ok().build();
+        if (authorizationCodeGrantTypeResOpt.isPresent()) {
+
+            HashMap<String, String> body = new HashMap<>();
+            body.put("accessToken", serverWebExchange.getResponse()
+                                                     .getCookies()
+                                                     .get(CookieHelper.ACCESS_TOKEN_COOKIE_KEY).get(0).getValue());
+            body.put("refreshToken", serverWebExchange.getResponse()
+                                                      .getCookies()
+                                                      .get(CookieHelper.REFRESH_TOKEN_TO_REFRESH_COOKIE_KEY).get(0)
+                                                      .getValue());
+
+            return ResponseEntity.ok(body);
         }
 
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
@@ -98,18 +125,18 @@ public class AuthController {
     public ResponseEntity<?> logout(@RegisteredOAuth2AuthorizedClient(registrationId = "hb-gateway")
                                         OAuth2AuthorizedClient authorizedClient,
                                     ServerHttpRequest request,
-                                    ServerHttpResponse response) {
+                                    ServerHttpResponse response,
+                                    @CookieValue(value = CookieHelper.ACCESS_TOKEN_COOKIE_KEY, required = false) String accessToken,
+                                    @CookieValue(value = CookieHelper.REFRESH_TOKEN_TO_REFRESH_COOKIE_KEY, required = false) String refreshToken,
+                                    @RequestHeader("accessToken") String accessTokenHeader,
+                                    @RequestHeader("refreshToken") String refreshTokenHeader) {
         CookieHelper.clearTokenCookie(response);
+        String finalAccessToken = ObjectUtils.isEmpty(accessToken) ? accessTokenHeader : accessToken;
+        String finalRefreshToken = ObjectUtils.isEmpty(refreshToken) ? accessTokenHeader : refreshToken;
 
-        uaaClient.revokeToken(request.getCookies()
-                                     .get(CookieHelper.ACCESS_TOKEN_COOKIE_KEY)
-                                     .get(0)
-                                     .getValue(),
+        uaaClient.revokeToken(finalAccessToken,
                               "access_token");
-        uaaClient.revokeToken(request.getCookies()
-                                     .get(CookieHelper.REFRESH_TOKEN_TO_LOGOUT_COOKIE_KEY)
-                                     .get(0)
-                                     .getValue(),
+        uaaClient.revokeToken(finalRefreshToken,
                               "refresh_token");
 
         String stringBuilder =

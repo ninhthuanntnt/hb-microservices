@@ -6,7 +6,7 @@ export class NotificationUtils {
             duration: 1.5,
             placement: "bottomRight",
             message: "Server Error",
-            description: `${response.fieldName && `${response.fieldName}: `}${response.message ?? response.error ?? "Some thing error"}`
+            description: `${response.fieldName && `${response.fieldName}: `}${response.message ?? response.error ?? "Something error"}`
         });
     }
 

@@ -6,10 +6,11 @@ import {isEmpty} from "lodash";
 import {LogoutRes} from "../../models/response/LogoutRes";
 import {select, TakeEffect} from "@redux-saga/core/effects";
 import {history} from "../../utils/history";
-import {LoginReq} from "../../models/request/LoginReq";
 
 function* handleLogout() {
     let logoutRes: LogoutRes = yield call(authApi.logout);
+    localStorage.removeItem("accessToken");
+    localStorage.removeItem("refreshToken");
     window.location.href = logoutRes.redirectUrl + "?redirectUrl=" + window.location.href;
 }
 
@@ -31,7 +32,10 @@ function* watchAuthFlow() {
                 console.log("need login");
                 let action: TakeEffect = yield take(authActions.startLogin.type);
                 let loginReq: any = action.payload;
-                yield call(authApi.login, loginReq);
+                let response = yield call(authApi.login, loginReq);
+                localStorage.setItem("accessToken", response['accessToken']);
+                localStorage.setItem("refreshToken", response['refreshToken']);
+
                 yield put(authActions.finishLogin)
 
                 yield call(handleLoadProfile);
