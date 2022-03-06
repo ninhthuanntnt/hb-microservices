@@ -10,4 +10,8 @@ export class UriUtils {
     static getImageUrlFromPath(path: string | undefined) {
         return `${BASE_URL}/hb-dmm/${path}`;
     }
+
+    static getCurrentUrl() {
+        return window.location.protocol + "//" + window.location.host;
+    }
 }
