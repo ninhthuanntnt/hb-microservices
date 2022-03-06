@@ -15,9 +15,14 @@ function* handleLogout() {
 }
 
 function* handleLoadProfile() {
-    const res: ProfileRes = yield call(authApi.getProfile);
-    if (!isEmpty(res)) {
-        yield put(authActions.loadProfile(res));
+    try {
+        const res: ProfileRes = yield call(authApi.getProfile);
+        if (!isEmpty(res)) {
+            yield put(authActions.loadProfile(res));
+        }
+    } catch (err) {
+        localStorage.removeItem("accessToken")
+        localStorage.removeItem("refreshToken")
     }
 }
 
