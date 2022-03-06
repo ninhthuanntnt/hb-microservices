@@ -1,0 +1,21 @@
+-DHB_DB_URL='jdbc:mysql://localhost:3306/hb_uaa?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false&autoReconnect=true&failOverReadOnly=false&maxReconnects=1' \
+-DHB_DB_USERNAME=root \
+-DHB_DB_PASSWORD=r00t \
+-DHB_JWT_SECRET_KEY=asdfkasdfolasfdkj3543adfffffaswrwer3662a6sdfasdf \
+-DHB_JWT_ISSUER=highblog.com \
+-DHB_JWT_EXPIRATION=3600000 \
+-DHB_JWT_REFRESH_EXPIRATION=259200000 \
+-DHB_ABSOLUTE_PATH_UPLOADS_DIR=/home/ninhthuan/uploads \
+-DHB_MAIL_USERNAME=nt199952@gmail.com \
+-DHB_MAIL_PASSWORD='thuanthuc123qsxwdcpp!#!#ntnt' \
+-DHB_ALLOWED_ORIGIN=http://localhost:3000 \
+-DHB_PAYPAL_CLIENT_ID=ASxmyLo7w_THZRCs21HDBeyWdqOM0syn7Lz8AHVGxInDEkN2RfZniKS6jQmFvJ_-V7mmZbwJIbtm7ds4 \
+-DHB_PAYPAL_CLIENT_SECRET=EIxA1Pk095ISazkAgarRq156Va672clcv9o1n6PB6aKcvtu4yGYdeCaOvhVc_tvZB5MZt_ePkrhSbn99 \
+-DHB_PAYPAL_ENVIRONMENT=SANDBOX \
+-DHB_SSL_KEY_STORE=file:/home/ninhthuan/keystore.p12 \
+-DHB_SSL_KEY_STORE_TYPE=pkcs12 \
+-DHB_SSL_KEY_STORE_PASSWORD='123qwe!@#QWE' \
+-DHB_RABBIT_MQ_HOST=localhost \
+-DHB_RABBIT_MQ_PORT=61613 \
+-DHB_RABBIT_MQ_USERNAME=hb_admin \
+-DHB_RABBIT_MQ_PASSWORD=hb_admin
