@@ -29,7 +29,7 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          jwk-set-uri: http://127.0.0.1:8280/oauth2/jwks
+          jwk-set-uri: ${HB_UAA_URL:http://127.0.0.1:8280}/oauth2/jwks
   neo4j:
     uri: ${HB_NEO4J_URL}
     authentication:

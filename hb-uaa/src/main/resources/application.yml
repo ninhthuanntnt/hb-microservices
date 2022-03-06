@@ -49,3 +49,6 @@ feign:
 logging:
   level:
     root: INFO
+
+application:
+  hb-uaa-url: ${HB_UAA_URL:http://127.0.0.1:8280}

@@ -4,6 +4,7 @@ import com.nimbusds.jose.jwk.JWKSet;
 import com.nimbusds.jose.jwk.RSAKey;
 import com.nimbusds.jose.jwk.source.JWKSource;
 import com.nimbusds.jose.proc.SecurityContext;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.Ordered;
@@ -16,7 +17,6 @@ import org.springframework.security.oauth2.core.AuthorizationGrantType;
 import org.springframework.security.oauth2.core.ClientAuthenticationMethod;
 import org.springframework.security.oauth2.core.oidc.OidcScopes;
 import org.springframework.security.oauth2.jwt.JwtDecoder;
-import org.springframework.security.oauth2.jwt.JwtEncoder;
 import org.springframework.security.oauth2.server.authorization.client.InMemoryRegisteredClientRepository;
 import org.springframework.security.oauth2.server.authorization.client.RegisteredClient;
 import org.springframework.security.oauth2.server.authorization.client.RegisteredClientRepository;
@@ -37,11 +37,14 @@ import java.util.UUID;
 public class AuthServerConfig {
     private final PasswordEncoder passwordEncoder;
     private final JwtAuthenticationConverter jwtAuthenticationConverter;
+    private final String hbUaaUrl;
 
     public AuthServerConfig(final PasswordEncoder passwordEncoder,
-                            final JwtAuthenticationConverter jwtAuthenticationConverter) {
+                            final JwtAuthenticationConverter jwtAuthenticationConverter,
+                            @Value("${application.hb-uaa-url}") String hbUaaUrl) {
         this.passwordEncoder = passwordEncoder;
         this.jwtAuthenticationConverter = jwtAuthenticationConverter;
+        this.hbUaaUrl = hbUaaUrl;
     }
 
     @Bean
@@ -69,8 +72,11 @@ public class AuthServerConfig {
                             .redirectUris(redirectUris -> {
                                 redirectUris.add("https://oauth.pstmn.io/v1/callback");
                                 redirectUris.add("http://127.0.0.1:8080/login/oauth2/code/hb-gateway");
+                                redirectUris.add("http://159.223.75.208:8080/login/oauth2/code/hb-gateway");
                                 redirectUris.add("http://localhost:8080/authorized");
                                 redirectUris.add("http://127.0.0.1:3000/login");
+                                redirectUris.add("http://localhost:3000/login");
+                                redirectUris.add("http://159.223.75.208:3000/login");
                             })
                             .scope(OidcScopes.OPENID)
                             .scope("notification.read")
@@ -120,7 +126,7 @@ public class AuthServerConfig {
     @Bean
     public ProviderSettings providerSettings() {
         return ProviderSettings.builder()
-                               .issuer("http://127.0.0.1:8280")
+                               .issuer(hbUaaUrl)
                                .build();
     }
 }

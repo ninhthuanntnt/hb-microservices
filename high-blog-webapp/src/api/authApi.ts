@@ -15,7 +15,7 @@ const authApi = {
         return axiosClient.get("/api/v1/auth/logout", {withCredentials: true});
     },
     getLoginUrl(): Promise<LoginRequestRes> {
-        return axiosClient.get("/api/v1/auth/login?redirectUri=http://127.0.0.1:3000/login", {withCredentials: true});
+        return axiosClient.get("/api/v1/auth/login?redirectUri=http://localhost:3000/login", {withCredentials: true});
     },
     login(loginReq: LoginReq): Promise<void> {
         return axiosClient.post("/api/v1/auth/login", loginReq, {withCredentials: true});
