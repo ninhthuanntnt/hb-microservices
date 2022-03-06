@@ -236,6 +236,7 @@ public class PostCrudBloc {
     private void pushNewPostNotification(User notificationSender, Post post) {
         List<Long> receiverIds = subscriptionService.fetchFollowerIdsByUserId(notificationSender.getId())
                                                     .stream()
+                                                    .filter(Subscription::isNotified)
                                                     .map(Subscription::getFollowerId)
                                                     .collect(Collectors.toList());
         try {
