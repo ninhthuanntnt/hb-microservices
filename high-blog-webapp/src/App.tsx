@@ -20,6 +20,7 @@ import FollowingPosts from "./features/posts/pages/FollowingPosts";
 import Activation from "./features/register/page/Activation";
 import PersonalPage from "./features/users/PersonalPage";
 import {random} from "lodash";
+import {NOTIFICATION_SERVER_URL} from "./const/constant";
 
 const App: React.FC = () => {
     const isLoggedIn = useAppSelector(state => state.auth.isLoggedIn);
@@ -29,7 +30,7 @@ const App: React.FC = () => {
             <Header/>
             {
                 isLoggedIn &&
-                <WebsocketConfig socketUrl={process.env.NOTIFICATION_SERVER_URL + "/notification"}
+                <WebsocketConfig socketUrl={NOTIFICATION_SERVER_URL + "/notification"}
                                  subscribedUrl={`/user/exchange/amq.direct/notification`}
                                  markSentUrl={'/app/notification.setSent'}/>
             }
