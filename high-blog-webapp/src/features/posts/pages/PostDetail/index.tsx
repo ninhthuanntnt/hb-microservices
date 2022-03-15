@@ -68,6 +68,12 @@ const PostDetail: React.FC = () => {
     const [currentVoteType, setCurrentVoteType] = useState<VoteType | null>();
     const [numberOfVotes, setNumberOfVotes] = useState<number>(0);
 
+    useEffect(()=> {
+        setTimeout(function () {
+
+        }, 3000);
+    }, [])
+
     useEffect(() => {
         postsApi.getPostDetail(postId)
             .then(value => {

@@ -12,6 +12,9 @@ const recommendApi = {
     },
     fetchRelatedUserByNickname(nickname, page: number, pageSize: number = 10): Promise<BasePaginationRes<UserRes>> {
         return axiosClient.get(`/hb-dmm/api/v1/recommendation/users/${nickname}`)
+    },
+    markAsReadPost(postId: number) {
+        return axiosClient.get(`/hb-dmm/api/v1/recommendation/posts/${postId}/mark-as-read`);
     }
 }
 
