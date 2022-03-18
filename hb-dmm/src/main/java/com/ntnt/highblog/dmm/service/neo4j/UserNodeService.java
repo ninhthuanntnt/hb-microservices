@@ -59,4 +59,14 @@ public class UserNodeService {
             repository.deleteFollowsRelationship(followerId, followedUserId);
         }
     }
+
+    public void createUserReadPost(final Long userId, final Long postId) {
+        log.info("Create userNode #{} read postNode #{}", userId, postId);
+
+        if(repository.existsUserReadPostByUserIdAndPostId(userId, postId))
+            repository.updateCountUserReadPostByUserIdAndPostId(userId, postId);
+        else
+            repository.createUserReadPost(userId, postId);
+
+    }
 }

@@ -43,4 +43,16 @@ public interface UserNodeRepository
         + " CREATE (follower)-[:FOLLOWS]->(followedUser)")
     void createFollowsRelationship(Long followerId, Long followedUserId);
 
+    @Query("MATCH (user:User {id: $userId})-[r:READ]->(post:Post {id: $postId})"
+        + " RETURN COUNT(r) > 0")
+    boolean existsUserReadPostByUserIdAndPostId(Long userId, Long postId);
+
+    @Query("MATCH (user:User {id: $userId})"
+        + " MATCH (post:Post {id: $postId})"
+        + " CREATE (user)-[:READ {count: 1}]->(post)")
+    void createUserReadPost(Long userId, Long postId);
+
+    @Query("MATCH (user:User {id: $userId})-[r:READ]->(post:Post {id: $postId})"
+        + " SET r.count = CASE WHEN r.count IS NULL THEN 1 ELSE r.count + 1 END")
+    void updateCountUserReadPostByUserIdAndPostId(Long userId, Long postId);
 }

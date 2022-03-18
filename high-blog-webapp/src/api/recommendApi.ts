@@ -14,7 +14,7 @@ const recommendApi = {
         return axiosClient.get(`/hb-dmm/api/v1/recommendation/users/${nickname}`)
     },
     markAsReadPost(postId: number) {
-        return axiosClient.get(`/hb-dmm/api/v1/recommendation/posts/${postId}/mark-as-read`);
+        return axiosClient.get(`/hb-dmm/api/v1/user/recommendation/posts/${postId}/mark-as-read`);
     }
 }
 
