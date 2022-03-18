@@ -50,7 +50,7 @@ public interface PostRepository
         + " WHERE p.categoryId = :categoryId"
         + " AND p.deleted = false "
         + " AND p.postType = 'NORMAL'"
-        + " ORDER BY (ps.numberOfVotes + ps.numberOfFavorites*10) / FUNCTION('POW', 1.8, 1 + FUNCTION('TIMESTAMPDIFF', HOUR, CURRENT_TIMESTAMP, p.createdDate)/24) DESC, p.createdDate DESC")
+        + " ORDER BY (ps.numberOfVotes + ps.numberOfFavorites*10) / FUNCTION('POW', 1.8, 1 + FUNCTION('TIMESTAMPDIFF', HOUR, p.createdDate, CURRENT_TIMESTAMP)/24) DESC, p.createdDate DESC")
     Page<Post> fetchTrendingByCategoryId(Long categoryId, Pageable pageable);
 
     @Query("SELECT new Post(p, ps) FROM Post p "

@@ -24,7 +24,7 @@ MATCH (user:User {id: 977})-[:READ]->(post:Post)-[:HAS_TAG]->(tag:Tag)
 MATCH (otherPost:Post)-[:HAS_TAG]->(otherPostTag:Tag)
 WHERE NOT EXISTS ((user)-[:IS_AUTHOR]->(post))
       AND NOT EXISTS ((user)-[:IS_AUTHOR]->(otherPost))
-      // AND NOT EXISTS ((otherPost)-[:HAS_TAG]->(:Tag)<-[:HAS_TAG]-(:Post)<-[:READ]-(user))
+      //AND NOT EXISTS ((otherPost)-[:HAS_TAG]->(:Tag)<-[:HAS_TAG]-(:Post)<-[:READ]-(user))
 OPTIONAL MATCH (user)-[readOtherPost:READ]->(otherPost)
 WITH post, otherPost, CASE WHEN readOtherPost.count IS NULL THEN 0 ELSE readOtherPost.count END AS readCount,
       COLLECT(DISTINCT tag.name) AS postTagNames,           
@@ -44,6 +44,15 @@ SKIP 0 LIMIT 20
 ```
 
 ## Fetch related user
-```mysql
-
+``` mysql
+MATCH (author:User {id: $id})-[:IS_AUTHOR]->(post:Post)<-[:READ]-(reader:User)
+WITH author, COLLECT(DISTINCT reader.id) AS readerIds
+MATCH (relatedUser:User)-[:IS_AUTHOR]->(otherPost:Post)<-[:READ]-(relatedReader:User)
+WHERE relatedUser <> author 
+    AND ($currentUserId IS NULL OR NOT EXISTS ((:User {id: $currentUserId})-[:FOLLOWS]->(relatedUser)))
+WITH author, readerIds, relatedUser, COLLECT(DISTINCT relatedReader.id) AS relatedReaderIds
+WITH author, relatedUser, apoc.coll.sum(gds.alpha.ml.oneHotEncoding(readerIds, relatedReaderIds)) / SIZE(readerIds) AS sim
+ORDER BY sim DESC, relatedUser.id ASC
+RETURN relatedUser
+SKIP $skip LIMIT $limit
 ```
