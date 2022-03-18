@@ -6,9 +6,16 @@ import org.springframework.messaging.simp.stomp.StompCommand;
 import org.springframework.messaging.simp.stomp.StompHeaderAccessor;
 import org.springframework.messaging.support.ChannelInterceptor;
 import org.springframework.messaging.support.MessageHeaderAccessor;
+import org.springframework.messaging.support.NativeMessageHeaderAccessor;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.security.oauth2.jwt.JwtDecoder;
+import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationToken;
 import org.springframework.stereotype.Component;
+import org.springframework.util.MultiValueMap;
+
+import java.util.Collections;
+import java.util.List;
 
 @Component
 public class AuthChannelInterceptorAdapter
@@ -28,8 +35,12 @@ public class AuthChannelInterceptorAdapter
         final Authentication authentication = (Authentication) accessor.getSessionAttributes().get("authentication");
 
         if(accessor.getCommand() == StompCommand.CONNECT) {
+            MultiValueMap<String, String> headers = (MultiValueMap<String, String>) accessor.getHeader(NativeMessageHeaderAccessor.NATIVE_HEADERS);
+            String accessToken = headers.get("accessToken").get(0);
+            Jwt jwt = jwtDecoder.decode(accessToken);
+            JwtAuthenticationToken jwtAuthenticationToken = new JwtAuthenticationToken(jwt, Collections.EMPTY_LIST);
             accessor.setLeaveMutable(false);
-            accessor.setUser(authentication);
+            accessor.setUser(jwtAuthenticationToken);
         }
         return message;
     }

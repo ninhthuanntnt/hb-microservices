@@ -17,7 +17,7 @@ const WebsocketConfig: React.FC<Props> = ({socketUrl, subscribedUrl, markSentUrl
         const socket = new SockJS(socketUrl);
         const stompClient = webstomp.over(socket);
 
-        stompClient.connect({}, function (frame) {
+        stompClient.connect({'accessToken': localStorage.getItem("accessToken") ?? ""}, function (frame) {
             stompClient.subscribe(subscribedUrl, (message) => {
 
                 if (message.command === "MESSAGE") {

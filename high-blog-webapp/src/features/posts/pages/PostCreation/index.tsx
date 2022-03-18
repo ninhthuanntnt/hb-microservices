@@ -181,6 +181,9 @@ const PostCreation: React.FC = () => {
                 <Form.Item>
                     <Upload.Dragger name={"file"}
                                     action={`${BASE_URL}/hb-dmm/api/v1/user/files/images`}
+                                    headers={{
+                                        Authorization: `Bearer ${localStorage.getItem("accessToken")}`
+                                    }}
                                     withCredentials={true}
                                     maxCount={1}
                                     showUploadList={false}
