@@ -42,3 +42,8 @@ ORDER BY
 RETURN otherPost.id, readCount, postTagNames, otherPostTagNames, jaccard, similarity
 SKIP 0 LIMIT 20
 ```
+
+## Fetch related user
+```mysql
+
+```

@@ -18,6 +18,7 @@ public interface UserNodeRepository
         + " WITH author, readerIds, relatedUser, COLLECT(DISTINCT relatedReader.id) AS relatedReaderIds"
         + " WITH author, relatedUser, apoc.coll.sum(gds.alpha.ml.oneHotEncoding(readerIds, relatedReaderIds)) / SIZE(readerIds) AS sim"
         + " ORDER BY sim DESC, relatedUser.id ASC"
+        + " WHERE sim > 0"
         + " RETURN relatedUser"
         + " SKIP $skip LIMIT $limit")
     List<UserNode> fetchRelatedUsersById(Long id, Long currentUserId, Long skip, Integer limit);
