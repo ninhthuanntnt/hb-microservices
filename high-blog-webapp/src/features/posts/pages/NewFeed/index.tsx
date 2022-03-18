@@ -6,7 +6,8 @@ const NewFeed: React.FC = () => {
 
     return (
         <Col md={15}>
-            <InfiniteScrollList url={"/hb-dmm/api/v1/recommendation/newsfeed"}/>
+            <InfiniteScrollList url={"/hb-dmm/api/v1/recommendation/newsfeed"}
+                                replaceUrl={'/hb-dmm/api/v1/posts?categoryId=1'}/>
         </Col>
     )
 }

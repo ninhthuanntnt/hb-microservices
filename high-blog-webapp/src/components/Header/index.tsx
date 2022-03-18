@@ -23,7 +23,7 @@ const Header: React.FC<Props> = (props) => {
             <Col md={4} sm={8} xs={12}>
                 <Row justify={"center"} align={"middle"}>
                     <Col className={"logo"}>
-                        High blog
+                        Tech blog
                     </Col>
                 </Row>
             </Col>

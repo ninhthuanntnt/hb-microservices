@@ -7,10 +7,12 @@ import {BasePaginationRes} from "../../models/response/BasePaginationRes";
 import postsApi from "../../api/postsApi";
 
 export interface Props {
-    url: string
+    url: string,
+    replaceUrl?: string
 }
 
-const InfiniteScrollList: React.FC<Props> = ({url}) => {
+const InfiniteScrollList: React.FC<Props> = ({url, replaceUrl}) => {
+    const [finalUrl, setFinalUrl] = useState(url);
     const [firstLoading, setFirstLoading] = useState<boolean>(true);
     const [data, setData] = useState<PostRes[]>([]);
     const [page, setPage] = useState<number>(1);
@@ -18,22 +20,28 @@ const InfiniteScrollList: React.FC<Props> = ({url}) => {
 
 
     const appendData = useCallback(async () => {
-        let posts: BasePaginationRes<PostRes> = await postsApi.getByUrl(url, page);
+        let posts: BasePaginationRes<PostRes> = await postsApi.getByUrl(finalUrl, page);
 
         setData([...data, ...posts.items]);
         setPage(page + 1);
-        setTotalPage(posts.totalPage)
-    }, [data]);
+        setTotalPage(posts.totalPage);
+        return data;
+    }, [finalUrl, data, page]);
 
     useEffect(() => {
         appendData()
             .then(value => {
+                console.log("DATA:", value.length == 0  && finalUrl != replaceUrl);
+                if(value.length == 0 && replaceUrl != undefined && finalUrl != replaceUrl) {
+                    setPage(1);
+                    setFinalUrl(replaceUrl);
+                }
                 setFirstLoading(false);
             })
             .catch(reason => {
                 setFirstLoading(false);
             });
-    }, []);
+    }, [finalUrl]);
 
     return (
         <>
